@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+{% load render_partial %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>پای تو پای٬ صفحه ورود کاربران</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="سایت آموزشی پای تو پای٬ صفحه ورود">
+
+    {% include 'includes/HeaderLink.html' %}
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper d-flex flex-column">
+
+    {% render_partial 'core.partial_views.header_light' %}
+    <!-- Page content-->
+    <!-- Background image-->
+    <div class="d-none d-md-block position-absolute w-50 h-100 bg-size-cover"
+         style="top: 0; right: 0; background-image: url({% static '' %}img/account/signin-img.jpg);"></div>
+    <!-- Actual content-->
+    <section class="container d-flex align-items-center pt-7 pb-3 pb-md-4" style="flex: 1 0 auto;direction: ltr">
+        <div class="w-100 pt-3">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 offset-lg-1" style="direction: rtl">
+                    <!-- Sign in view-->
+                    <div class="view show" id="signin-view">
+                        <h1 class="h2">ورود</h1>
+                        <p class="fs-ms text-muted mb-4">لطفا برای ورود ایمیل و رمز عبور خود را وارد کنید .</p>
+                        <form class="needs-validation" method="post" action="" novalidate>
+                            {% csrf_token %}
+                            <div class="input-group mb-3"><i
+                                    class="ai-mail position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                                {{ login_form.email }}
+                                {% for err in login_form.email.errors %}
+                                    <span style="color: red;font-size: 14px;padding: 2px 1.125rem 0 0;margin-bottom: 0">{{ err }}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="input-group mb-3"><i
+                                    class="ai-lock position-absolute top-50 end-0 translate-middle-y me-3"></i>
+                                <div class="password-toggle w-100">
+                                    {{ login_form.password }}
+                                    {% for err in login_form.password.errors %}
+                                        <p style="color: red;font-size: 14px;padding: 2px 1.125rem 0 0;margin-bottom: 0">{{ err }}</p>
+                                    {% endfor %}
+                                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                                        <input class="password-toggle-check" type="checkbox"><span
+                                            class="password-toggle-indicator"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3 pb-1">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="keep-signed-2">
+                                    <label class="form-check-label" for="keep-signed-2">مرا به خاطر بسپار</label>
+                                </div>
+                                <a class="nav-link-style fs-ms" href="password-recovery.html">رمز عبور خود را فراموش
+                                    کرده اید ؟</a>
+                            </div>
+                            <button class="btn btn-primary d-block w-100" type="submit">ورود</button>
+                            <p class="fs-sm pt-3 mb-0">هنوز ثبت نام نکرده اید ؟ <a href='{% url 'register' %}' class='fw-medium'
+                                                                                   data-view='#signup-view'>ثبت نام</a>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer text-center text-md-start py-4">
+    <div class="container fs-sm mb-0 py-3"><span
+            class="text-muted me-1">© تمامی حقوق این سایت و تمامی مطالب مطعلق به </span><a
+            class="nav-link-style" href="https://pytopy.ir" target="_blank" rel="noopener">پای تو پای</a>
+        می باشد.
+    </div>
+</footer>
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">برو بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+</body>
+</html>

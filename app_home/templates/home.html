@@ -1,0 +1,320 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>پای تو پای مرجع آموزش زبان برنامه نویسی پایتون</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description"
+          content="آموزش زبان برنامه نویسی پایتون، ترفند های زبان برنامه نویسی پایتون، مقالات و اطلاعات با ارزش در مورد برنامه نویسی، هوش مصنوعی، دیتا ماینینگ، جنگو، وب، موبایل، هک و امنیت و ...">
+    <meta name="keywords"
+          content="پایتون، جنگو، هوش مصنوعی، دیتا ماینینگ، ربات پایتون، پای تو پای ، پایتوپای، مرجع زبان برنامه نویسی پایتون، ">
+
+    {% include 'includes/HeaderLink.html' %}
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/tiny-slider/dist/tiny-slider.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/flatpickr/dist/flatpickr.min.css' %}"/>
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+    {% render_partial 'core.partial_views.header_home' %}
+    <!-- Page content-->
+    <!-- Hero-->
+    <section class="jarallax bg-dark py-7" data-jarallax data-speed="0.25">
+        <div class="jarallax-img"
+             style="background-image: url({% static 'img/demo/banner-programmer.jpg' %});"></div>
+        <div class="container py-5 py-sm-7 text-center">
+            <div class="py-md-6">
+                <h1 class="text-light pb-1">پای تو پای اولین مجموعه تخصصی پایتون</h1>
+                <p class="fs-lg text-light">پایتون یک زبان برنامه نویسی است که به شما امکان می دهد سریع کار کنید
+                    و سیستم ها را به طور موثرتر یکپارچه کنید.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Booking form-->
+    <form method="get" action="/search" class="container position-relative zindex-5"
+          style="margin-top: -68px;max-width: 780px;">
+        <div class="d-lg-flex align-items-center bg-secondary border rounded-3 px-4 pt-4 pb-3">
+            <div class="d-sm-flex align-items-center flex-grow-1">
+                <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
+                    <label class="form-label" for="from-destination">جست و جو در</label>
+                    <select name="type_" class="form-select" id="from-destination">
+                        <option value="article">مقاله ها</option>
+                        <option value="course">آموزش ها</option>
+                        <option value="question" disabled hidden>پرسش ها</option>
+                    </select>
+                </div>
+                <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
+                    <label class="form-label" for="to-destination">دسته بندی</label>
+                    <select name="category" class="form-select" id="to-destination">
+                        <option value="all" selected>همه دسته ها</option>
+                        <option value="artificial_intelligence">هوش مصنوعی</option>
+                        <option value="">دیتا ماینینگ</option>
+                        <option value="">طراحی سایت</option>
+                        <option value=""> ربات ها</option>
+                        <option value="">هک و امنیت</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-sm-flex align-items-center me-sm-3">
+                <div class="mb-3 pb-1 w-100 mb-sm-4 ms-sm-3">
+                    <label class="form-label">متن مورد نظر</label>
+                    <div class="input-group">
+                        <input name="q" class="form-control rounded appended-form-control" type="text"
+                               placeholder="دنبال چه چیزی هستید ؟"
+                               id="return-date"><i
+                            class="ai-pen-tool align-middle position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                    </div>
+                </div>
+                <div class="text-center  text-sm-start mt-2 mt-sm-4 mb-4">
+                    <button class="btn btn-primary fs-sm" type="submit">جست و جو کن</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <section class="container py-5 py-md-6 py-lg-7">
+        <div class="row pt-2">
+            <div class="col-sm-3 mb-grid-gutter pb-1">
+                <div class="mx-auto text-center" style="max-width: 278px;"><img class="d-inline-block mb-3"
+                                                                                src="{% static 'img/demo/1.svg' %}"
+                                                                                alt="مقاله های سایت پای تو پای"
+                                                                                width="56">
+                    <h3 class="h5">مقالات</h3>
+                    <p class="fs-sm mb-0">هر روز با مقالات بسیار ارزش مند از معتبر ترین منابع دنیا به صورت ترجمه و توضیح
+                        ویدیو ای</p>
+                </div>
+            </div>
+            <div class="col-sm-3 mb-grid-gutter pb-1">
+                <div class="mx-auto text-center" style="max-width: 278px;"><img class="d-inline-block mb-3"
+                                                                                src="{% static 'img/demo/4.svg' %}"
+                                                                                alt="آموزش های سایت پای تو پای"
+                                                                                width="56">
+                    <h3 class="h5">آموزش</h3>
+                    <p class="fs-sm mb-0">تخصصی ترین آموزش های مربوط به پایتون و هوش مصنوعی و دیتا ماینینگ</p>
+                </div>
+            </div>
+            <div class="col-sm-3 mb-grid-gutter pb-1">
+                <div class="mx-auto text-center" style="max-width: 278px;"><img class="d-inline-block mb-3"
+                                                                                src="{% static 'img/demo/3.svg' %}"
+                                                                                alt="کد های سایت پای تو پای" width="67">
+                    <h3 class="h5">کد</h3>
+                    <p class="fs-sm mb-0">کد های کاربردی و برنامه های کاربردی که در اختیار شما عزیزان قرار میگیرد</p>
+                </div>
+            </div>
+            <div class="col-sm-3 mb-grid-gutter pb-1">
+                <div class="mx-auto text-center" style="max-width: 278px;"><img class="d-inline-block mb-3"
+                                                                                src="{% static 'img/demo/2.svg' %}"
+                                                                                alt="بخش پرسش و پاسخ سایت پای تو پای"
+                                                                                width="67">
+                    <h3 class="h5">پرسش و پاسخ</h3>
+                    <p class="fs-sm mb-0">/پرسش، و پاسخ به تمامی سوالات شما دوستان در مورد پایتون و تمامی حوضه های مربوط
+                        به آن</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services (Split section)-->
+    <section class="row g-0 mt-3">
+
+        <div class="col-md-6 border-top border-bottom px-3 pe-xl-0 pe-lg-5 pe-xl-7">
+            <div class="ms-sm-4 my-2 py-5 my-sm-0 py-sm-6 py-md-7" style="max-width: 495px">
+                <h2 class="mb-4 fs-xl">مقاله های پای تو پای</h2>
+                <p class="mb-5">
+                    در ای بخش مطالب بسیار باارزشی در حوضه برنامه نویسی و پایتون برای شما دوستان قرار گرفته است که تمامی
+                    آن ها از منابع معتبر دنیا جمع
+                    آوری و به بهترین شکل ترجمه شده است و در کنار آن ها تجربیات ما نیز قرار گرفته است تا به شما کمک کنیم
+                    تا مطالب را هر چه کامل تر و بهتر درک کنید.
+                </p>
+
+
+                <div class="ps-5 mt-n1"><a class="fancy-link ms-4" href="/articles">از دست ندهید</a></div>
+            </div>
+        </div>
+        <div class="col-md-6 bg-size-cover py-7"
+             style="background-image: url({% static 'img/home-page/pytopy-articles.jpg' %});">
+            <div class="py-6"></div>
+        </div>
+    </section>
+    <!-- Blog-->
+    <section style="direction: ltr" class="container py-5 py-md-6 py-lg-7 mb-4 mb-md-0">
+        <h2 class="mb-5 mt-3 mt-md-0 text-center">مقاله های اخیر</h2>
+        <div class="tns-carousel-wrapper">
+            <div class="tns-carousel-inner"
+                 data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;: 16},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 16},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 16}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 23}}}">
+                {% for item in articles|slice:7 %}
+                    <!-- Article-->
+                    <div class="pb-2">
+                        <article class="card card-hover h-100 pt-4 pb-5 mx-1"><span
+                                class="badge badge-lg badge-floating badge-floating-end bg-success fs-xs">جدید</span>
+                            <div class="card-body pt-5 px-4 px-xl-5"><span
+                                    class="meta-link fs-sm mb-2">{{ item.category }}</span>
+                                <h3 class="h4 nav-heading mb-4 fs-lg"><a
+                                        href="/article-detail/{{ item.id }}/{{ item.slug }}">{{ item.title }}</a></h3>
+                            </div>
+                            <div class="px-4 px-xl-5 pt-2">
+                                <a class="d-flex meta-link fs-sm align-items-center"
+                                   href="#">
+                                    {% for information in userInformation %}
+                                        <img class="rounded-circle" src="
+                                                {% if information.user.id == item.user.id %}{{ information.image.url }}{% endif %}"
+                                             alt="{{ item.user.get_full_name }}" width="36">
+                                    {% endfor %}
+                                    <div class="pe-2 me-1 mt-n1">توسط<span
+                                            class="fw-semibold me-1">{{ item.user.get_full_name }}</span>
+                                    </div>
+                                </a>
+                                <div class="mt-3 text-end text-nowrap"><a class="meta-link fs-xs" href="#"><i
+                                        class="ai-calendar ms-1 mt-n1"></i>{{ item.date }}</a></div>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- FAQ-->
+    <section class="container py-5 my-4 my-sm-0 py-sm-6 py-md-7">
+        <h2 class="text-center pb-2 mb-5">سوالات متداول شما عزیزان !</h2>
+        <div class="row pb-2">
+            <div class="col-lg-6">
+                <div class="accordion" id="faq">
+                    <div class="accordion-item shadow">
+                        <h2 class="accordion-header" id="faq-heading-1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-1" aria-expanded="true" aria-controls="faq-content-1">
+                                پشتیبانی دوره ها به چه صورت است و تا کی ؟
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse show" id="faq-content-1" aria-labelledby="faq-heading-1"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <div class="fs-sm">پشتیبانی دوره های آموزشی به صورت دائمی و مادام العمر از طریق کانال
+                                    های ارتباطی با مدرس می باشد.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item shadow">
+                        <h2 class="accordion-header" id="faq-heading-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-2" aria-expanded="false" aria-controls="faq-content-2">
+                                آیا دوره ها کامل است ؟
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse" id="faq-content-2" aria-labelledby="faq-heading-2"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <div class="fs-sm">
+                                    پای تو پای در انتخاب مدرسان خود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده
+                                    است در بیشتر کیفیت علمی و مفهومی نگه دارد.
+                                    مدرسان پای تو پای افراد متخصص در زمینه خود هستنید و سعی کرده اند تمام تجربیات خود را
+                                    با شما در میان بگذارند.
+                                    پس شما عزیزان اصلا نگران کامل بودن نباشید
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item shadow">
+                        <h2 class="accordion-header" id="faq-heading-3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-3" aria-expanded="false" aria-controls="faq-content-3">
+                                آیا دوره ها ضمانت بازگشت وجه دارد؟
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse" id="faq-content-3" aria-labelledby="faq-heading-3"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <div class="fs-sm">بله دوست عزیز.
+                                    تمامی دوره های پای تو پای در صورتی که شما عزیزان از آن ناراضی باشید
+                                    بدون هیچ قید و شرطی مبلغ بازگردانده می شود.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item shadow">
+                        <h2 class="accordion-header" id="faq-heading-4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-4" aria-expanded="false" aria-controls="faq-content-4">
+                                چگونه با پای تو پای همکاری کنم؟
+                            </button>
+                        </h2>
+                        <div class="accordion-collapse collapse" id="faq-content-4" aria-labelledby="faq-heading-4"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                <div class="fs-sm">شما عزیزان اگر دارای تخصصی هستید در این لینک ثبت درخواست کنید و اگر
+                                    علاقه مند به برنامه نویسی هستید باز هم به ما پیام بدهید و اگر در دوره ها شرکت کرده
+                                    اید در آخر دوره با همراهی ما به شما پروژه واقعی داده می شود.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-block col-lg-5 offset-lg-1"><img
+                    src="{% static 'img/demo/booking/illustration.svg' %}" alt="سوالات متداول کاربران سایت پای تو پای">
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">
+        برو بالا
+    </span>
+    <i class="btn-scroll-top-icon ai-arrow-up"></i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+
+<script src="{% static 'vendor/tiny-slider/dist/min/tiny-slider.js' %}"></script>
+
+<!-- Main theme script-->
+<script src="{% static 'js/theme.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).on('click', '#login-btn', function (e) {
+        e.preventDefault();
+
+        const email = $('#email-login').val()
+        const password = $('#password-login').val()
+        $.ajax({
+            type: 'POST',
+            url: '/login_page',
+            data: {
+                email: email,
+                password: password,
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+
+                alert(json.mesg)
+                window.location.reload()
+            },
+            error: function (xhr, errmsg, err) {
+                if (confirm('برای ثبت نظر اول باید وارد اکانت خود شوید یا ثبت نام کنید.')) {
+                    alert(err)
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>
