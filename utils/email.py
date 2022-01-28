@@ -9,4 +9,4 @@ class EmailService:
     def send_email(subject, to, template_name, context):
         html_message = render_to_string(template_name, context)
         plain_message = strip_tags(html_message)
-        send_mail(subject, plain_message, 'pytopy.ir@gmail.com', to, html_message=html_message)
+        send_mail(subject, plain_message, 'email@pytopy.ir', to, html_message=html_message)

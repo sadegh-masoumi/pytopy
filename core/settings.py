@@ -137,8 +137,8 @@ AUTH_USER_MODEL = 'app_user.User'
 
 # email configs
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pytopy.ir@gmail.com'
-EMAIL_HOST_PASSWORD = '9359005490.ms'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.pytopy.ir'
+EMAIL_HOST_USER = 'email@pytopy.ir'
+EMAIL_HOST_PASSWORD = '2eB&mCoXz&Sr'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True

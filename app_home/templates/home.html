@@ -28,6 +28,22 @@
 </div>
 <main class="page-wrapper">
     {% render_partial 'core.partial_views.header_home' %}
+    {% if messages %}
+        {% for message in messages %}
+            <!-- Success alert -->
+            <div class="container fixed-top">
+                <div class="py-md-4">
+                    <div class="alert d-flex alert-success" role="alert">
+                        <i class="ai-check-circle fs-xl me-3"></i>
+                        <div>
+                            {{ message }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <!-- Page content-->
     <!-- Hero-->
     <section class="jarallax bg-dark py-7" data-jarallax data-speed="0.25">
@@ -167,6 +183,13 @@
                                    href="#">
                                     {% for information in userInformation %}
                                         <img class="rounded-circle" src="
+
+
+
+
+
+
+
                                                 {% if information.user.id == item.user.id %}{{ information.image.url }}{% endif %}"
                                              alt="{{ item.user.get_full_name }}" width="36">
                                     {% endfor %}

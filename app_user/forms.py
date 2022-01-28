@@ -76,8 +76,25 @@ class LoginForm(forms.Form):
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        user = User.objects.filter(email=email)
-        if not user.exists():
+        user = User.objects.filter(email=email).first()
+        if user is None:
             raise forms.ValidationError('کاربری با این مشخصات یافت نشد')
-
+        if user.is_active is False:
+            raise forms.ValidationError(
+                'کاربری با این مشخصات یافت نشد. لطفا ایمیل خود را از طریق لینک ارسال شده تایید کنید.')
         return email
+
+
+class ForgetPasswordForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={'class': 'form-control', 'placeholder': 'آدرس ایمیل'}
+        )
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        user = User.objects.filter(email=email).first()
+        if user is None:
+            raise forms.ValidationError('کاربری با این مشخصات یافت نشد')
+        return user

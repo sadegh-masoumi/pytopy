@@ -64,11 +64,13 @@
                                     <input class="form-check-input" type="checkbox" id="keep-signed-2">
                                     <label class="form-check-label" for="keep-signed-2">مرا به خاطر بسپار</label>
                                 </div>
-                                <a class="nav-link-style fs-ms" href="password-recovery.html">رمز عبور خود را فراموش
+                                <a class="nav-link-style fs-ms" href="{% url 'forget-password' %}">رمز عبور خود را
+                                    فراموش
                                     کرده اید ؟</a>
                             </div>
                             <button class="btn btn-primary d-block w-100" type="submit">ورود</button>
-                            <p class="fs-sm pt-3 mb-0">هنوز ثبت نام نکرده اید ؟ <a href='{% url 'register' %}' class='fw-medium'
+                            <p class="fs-sm pt-3 mb-0">هنوز ثبت نام نکرده اید ؟ <a href='{% url 'register' %}'
+                                                                                   class='fw-medium'
                                                                                    data-view='#signup-view'>ثبت نام</a>
                             </p>
                         </form>
@@ -91,5 +93,9 @@
     <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">برو بالا</span>
     <i class="btn-scroll-top-icon ai-arrow-up"> </i>
 </a>
+
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
 </body>
 </html>
