@@ -1,9 +1,9 @@
 """
 urls of app_user
 """
+from django.urls import path
 
 from . import views
-from django.urls import path
 
 urlpatterns = [
     path('login', views.login_user, name='login'),
