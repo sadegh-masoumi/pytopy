@@ -1,0 +1,111 @@
+{% load static %}
+{% load template_tags %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>آموزش های پای تو پای در زمینه پایتون و جنگو</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="موزش های مختلف در حوضه زبان برنامه نویسی پایتون و جنگو">
+    <meta name="keywords"
+          content="آموزش پایتون">
+
+    {% include 'includes/HeaderLink.html' %}
+
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/nouislider/dist/nouislider.min.css' %}"/>
+
+</head>
+<!-- Body-->
+<body class="is-sidebar">
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+
+    {% render_partial 'core.partial_views.header_light' %}
+
+    <!-- Page content-->
+    <div class="sidebar-enabled">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar-->
+                <div class="col-lg-12 content py-4 mb-2 mb-sm-0 pb-sm-5">
+                    <!-- Active filters-->
+                    <div class="row">
+                        {% for item in object_list %}
+                            <!-- Item-->
+                            <div class="col-md-4 col-sm-6 mb-grid-gutter">
+                                <div class="card card-product card-hover">
+                                    <span class="badge badge-floating badge-pill bg-success">New</span>
+                                    <a class="card-img-top" href="/course/{{ item.id }}/{{ item.slug }}">
+                                        <img src="{{ item.main_image.url }}" alt="{{ item.alt_image }}">
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="meta-link fs-xs mb-1">{{ item.category.name }}</p>
+                                        <h3 class="fs-md fw-medium mb-2">
+                                            <a class="meta-link"
+                                               href="/course/{{ item.id }}/{{ item.slug }}">{{ item.name }}</a>
+                                        </h3>
+                                        {% if item.discount is not None and item.discount is not 0 %}
+                                            <del class="fs-sm text-muted me-1">{{ item.price }}</del>
+                                            <span class="text-heading fw-semibold">{{ item | amount_after_discount }}</span>
+                                            <span>تومان</span>
+                                        {% else %}
+                                            <span class="text-heading fw-semibold">{{ item.price }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex align-items-center"><a class="btn-wishlist" href="#"><i
+                                                class="ai-user"></i><span
+                                                style="font-size: 12px;margin-right: 3px">محمد صادق معصومی</span></a>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <a class="btn-wishlist" href="#"><i class="ai-heart"></i>
+                                                <span class="btn-tooltip">Wishlist</span>
+                                            </a>
+                                            <span class="btn-divider">
+                                                </span>
+                                            <a class="" href="#">
+                                                <span class="">5:20</span>
+                                                <i class="ai-clock"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Pagination-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+
+<!-- Sidebar toggle button-->
+<button class="btn btn-primary btn-sm sidebar-toggle" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#shop-sidebar"><i class="ai-filter fs-base me-2"></i>Filters
+</button>
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/simplebar/dist/simplebar.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/nouislider/dist/nouislider.min.js' %}"></script>
+<!-- Main theme script-->
+<script src="{% static 'js/theme.min.js' %}"></script>
+</body>
+</html>

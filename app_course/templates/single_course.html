@@ -1,0 +1,404 @@
+{% load static %}
+{% load render_partial %}
+{% load template_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ course.titlePage }}</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="{{ course.descriptionPage }}">
+    <meta name="keywords"
+          content="">
+
+    {% include 'includes/HeaderLink.html' %}
+
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/lightgallery.js/dist/css/lightgallery.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/tiny-slider/dist/tiny-slider.css' %}"/>
+    <!--  Bootstrap-->
+    <link rel="stylesheet" media="screen" href="{% static 'css/course_style.css' %}">
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+    {% render_partial 'core.partial_views.header_light' %}
+    <!-- Page content-->
+    <!-- Product gallery + info-->
+    <section class="sidebar-enabled sidebar-end border-bottom mb-5 mb-md-6">
+        <div class="container">
+            <div class="row">
+                <!-- Product info-->
+
+
+                <div class="col-lg-6 content py-4">
+                    {#                    <nav aria-label="breadcrumb">#}
+                    {#                        <ol class="py-1 my-2 breadcrumb" style="direction: rtl">#}
+                    {#                            <li class="breadcrumb-item"><a href="/">خانه</a></li>#}
+                    {#                            <li class="breadcrumb-item"><a href="/courses">آموزش ها</a>#}
+                    {#                            </li>#}
+                    {#                            <li class="breadcrumb-item active" aria-current="page">{{ course.name }}</li>#}
+                    {#                        </ol>#}
+                    {#                    </nav>#}
+                    <h1 class="mb-3 pb-4 fs-xl">{{ course.name }}</h1>
+                    <!-- Product gallery-->
+                    <div class="product-gallery">
+                        <div class="product-gallery-preview order-sm-2">
+                            <div class="product-gallery-preview-item active" id="first"><img
+                                    src="{{ course.main_image.url }}" alt="{{ course.alt_image }}"></div>
+                        </div>
+
+                    </div>
+                    <!-- Sharing-->
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start py-4 pt-md-0 pt-lg-5">
+                        <h6 class="text-nowrap my-2 ms-3">به اشترک گذاری :</h6><a
+                            class="btn-social bs-outline bs-facebook ms-2 my-2" href="#"><i class="ai-facebook"></i></a><a
+                            class="btn-social bs-outline bs-twitter ms-2 my-2" href="#"><i class="ai-twitter"></i></a><a
+                            class="btn-social bs-outline bs-google ms-2 my-2" href="#"><i class="ai-google"></i></a><a
+                            class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 sidebar bg-secondary pt-5 ps-lg-4 pb-md-2">
+                    <div class="ps-lg-4 pb-5"><a class="d-inline-block text-decoration-none" href="#reviews"
+                                                 data-scroll>
+                        <span class="text-body fs-sm">بیش از 60 شرکت کننده</span></a>
+                        <div class="py-4">
+                            <del class="text-muted me-2">{{ course.price | amount }}</del>
+                            <span class="h4 mb-0">{{ course | amount_after_discount }} تومان</span>
+                        </div>
+                        <div class="d-flex mt-4 mb-3">
+                            <button class="btn btn-primary d-block w-100" type="button">ثبت نام</button>
+                        </div>
+                        <button class="btn btn-outline-secondary d-block w-100 mb-grid-gutter" type="button">
+                            علاقه مند
+                            <i class="ai-heart fs-lg me-2"></i>
+                        </button>
+                        <p class="fs-md mb-2">
+                            فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می
+                            باشد. این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های
+                            بسیاری را برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
+
+                            اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی
+                            داشته باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
+
+                            برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
+                            بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
+
+                        </p>
+                        <a class="fancy-link fs-sm" href="#more-info" data-scroll>Read more</a>
+                        <hr class="my-4">
+                        <ul class="list-unstyled fs-sm">
+                            <li><span class="text-heading fw-medium me-2">کد:</span>
+                                1
+                            </li>
+                            <li><span class="text-heading fw-medium me-2">دسته بندی:</span><a
+                                    class="text-body text-decoration-none" href="#">
+                                وب</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Product description-->
+    <section class="mt-1 pt-3 pt-md-0 pb-5 pb-md-6 mb-5 mb-md-6 border-bottom" id="more-info">
+        <div class="container">
+            <div class="row align-items-center pb-3 mb-5">
+                <div class="col-lg-4 col-md-4  order-md-2 pb-2 mb-4 pb-md-0 mb-md-0">
+                    <div class="bg-secondary bg-size-cover bg-position-center rounded-3 py-7 px-4 text-center"
+                         style="background-image: url({% static '' %}img/shop/single/video.jpg);"><a
+                            class="btn-video btn-video-sm my-4" href="https://www.youtube.com/watch?v=d1qnvK3ID_w"></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-8 offset-lg-1 order-md-1">
+                    <h2 class="h3 mb-4">High quality materials</h2>
+                    <p class="fs-md">
+
+                        فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
+                        این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
+                        برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
+
+                        اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی داشته
+                        باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
+
+                        برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
+                        بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
+
+                        در این دوره ی آموزشی قصد داریم که این فریم ورک جذاب و دوست داشتنی را از مباحث مقدماتی تا نکات
+                        پیشرفته بررسی کنیم.
+
+                        جهت استفاده از این دوره ی اموزشی دوستان باید با تکنولوژی های HTML ، CSS ، Javascript ، Jquery و
+                        Bootstrap آشنایی داشته باشند.
+                    </p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 offset-lg-1 offset-md-1">
+                    <h2 class="h3 mb-4">Where is it made?</h2>
+                    <h6 class="mb-3">Apparel Manufacturer, Ltd.</h6>
+                    <p class="fs-sm pb-2">​Sam Tower, 6 Road No 32, Dhaka 1875, Bangladesh</p>
+                    <div class="d-flex mb-2">
+                        <div class=" text-center">
+                            <h4 class="h2 text-primary mb-1">3268</h4>
+                            <p class="text-heading">Workers</p>
+                        </div>
+                        <div class="me-4 pe-2 text-center">
+                            <h4 class="h2 text-primary mb-1">43%</h4>
+                            <p class="text-heading">Female</p>
+                        </div>
+                        <div class="me-4 pe-2 text-center">
+                            <h4 class="h2 text-primary mb-1">57%</h4>
+                            <p class="text-heading">Male</p>
+                        </div>
+                    </div>
+                    <h6 class="mb-3">Factory information</h6>
+                    <p class="fs-sm">​Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore.</p>
+                </div>
+                <div class="col-lg-3 col-md-3"><img class="d-block mx-auto mb-4 mb-md-0"
+                                                    src="{% static '' %}img/shop/single/map.png" alt="Map"
+                                                    width="290">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="mt-1 pt-3 pt-md-0 pb-5 pb-md-6 mb-5 mb-md-6 border-bottom" id="download">
+        <div class="container">
+            <div class="row align-items-center pb-3 mb-5">
+                <div class="col-md-12 order-md-2 pb-2 mb-4 pb-md-0 mb-md-0">
+                    <div class="bg-secondary bg-size-cover bg-position-center rounded-3 py-7 px-4 ">
+                        <ul class="list-group list-group-flush" style="padding: 0">
+                            <li class="list-group-item video-item">
+
+                                <span class="video-num">1</span>
+                                <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
+                                <div class="video-time">00:05:47</div>
+
+                                <a class="download-link"><i class="ai-download"></i></a>
+                            </li>
+                            <li class="list-group-item video-item">
+
+                                <span class="video-num">2</span>
+                                <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
+                                <div class="video-time">00:05:47</div>
+
+                                <a class="download-link"><i class="ai-download"></i></a>
+                            </li>
+                            <li class="list-group-item video-item">
+
+                                <span class="video-num">3</span>
+                                <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
+                                <div class="video-time">00:05:47</div>
+
+                                <a class="download-link"><i class="ai-download"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Reviews-->
+    <section class="pb-5 pt-2 pt-md-0 mb-5 mb-sm-6 border-bottom" id="reviews">
+        <div class="container pb-3">
+            <div class="row">
+                <!-- Review form-->
+                <div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0" style="direction: rtl">
+                    <div class="bg-secondary py-5 px-4 rounded-3">
+                        {% if send_comment %}
+                            <h3 style="color: #16c995" class="h4 pb-2">بازخورد شما با موفقیت ثبت شد</h3>
+                            <p style="color: #16c995">بعد از تایید نظر شما در بخش نظرات قابل مشاهده خواهد بود.</p>
+                        {% else %}
+                            <div class="px-xl-3">
+                                <h3 class="h4 pb-2">نظر شما نسبت به دوره</h3>
+                                <form class="needs-validation" method="post" action="" novalidate>
+                                    {% csrf_token %}
+                                    <div class="mb-3 pb-1">
+                                        <label class="form-label px-0" for="id_name">نام شما<span
+                                                class="text-danger me-1">*</span></label>
+                                        {{ CommentsForm.name }}
+                                        <div class="invalid-feedback">Please enter your name!</div>
+                                        <small class="form-text text-muted">Will be displayed on the comment.</small>
+                                    </div>
+                                    <div class="mb-3 pb-1">
+                                        <label class="form-label px-0" for="id_email">ایمیل شما<span
+                                                class="text-danger me-1">*</span></label>
+                                        {{ CommentsForm.email }}
+                                        <div class="invalid-feedback">Please provide valid email address!</div>
+                                        <small class="form-text text-muted">Authentication only - we won't spam
+                                            you.</small>
+                                    </div>
+                                    <div class="mb-3 pb-1">
+                                        <label class="form-label px-0" for="id_star">تعداد ستاره<span
+                                                class="text-danger me-1">*</span></label>
+                                        {{ CommentsForm.star }}
+                                        <div class="invalid-feedback">Please choose rating!</div>
+                                    </div>
+                                    <div class="mb-3 pb-1">
+                                        <labe class="form-label px-0l" for="id_description">توضیحات<span
+                                                class="text-danger me-1">*</span></labe>
+                                        {{ CommentsForm.description }}
+                                        <div class="invalid-feedback">Please write a review!</div>
+                                        <small class="form-text text-muted">Your review must be at least 50
+                                            characters.</small>
+                                    </div>
+                                    <button class="btn btn-primary btn-shadow d-block w-100" type="submit">
+                                        ارسال
+                                    </button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Reviews list-->
+                <div class="col-md-7" style="direction: rtl">
+                    <div class="d-flex justify-content-end pb-4 mb-2">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label px-0 mb-0 text-nowrap ms-2 d-none d-sm-block" for="sort-reviews">Sort
+                                by:</label>
+                            <select class="form-select form-select-sm" id="sort-reviews">
+                                <option>Newest</option>
+                                <option>Oldest</option>
+                                <option>Popular</option>
+                                <option>High rating</option>
+                                <option>Low rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    {% for item in courseComments %}
+                        <!-- Review-->
+                        <div class="{% if not forloop.first %}pt-grid-gutter {% endif %} pb-grid-gutter border-bottom">
+                            <div class="d-flex align-items-center mb-2 pb-1">
+                                <div class="star-rating-lg ms-2 star-rating mt-n1"><i
+                                        class="sr-star ai-star-filled active"></i><i
+                                        class="sr-star ai-star-filled active"></i><i
+                                        class="sr-star ai-star-filled active"></i><i
+                                        class="sr-star ai-star-filled active"></i><i
+                                        class="sr-star ai-star-filled active"></i>
+                                </div>
+                                <span class="fs-sm text-muted">76٪ از کاربران این بررسی را مفید دانستند</span>
+                            </div>
+                            <p class="fs-md">
+                                {{ item.description }}
+                            </p>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center me-3"><img class="rounded-circle"
+                                                                                 src="{% static '' %}img/testimonials/07.jpg"
+                                                                                 alt="Barbara Palson" width="42">
+                                    <div class="pe-2 me-1">
+                                        <h6 class="fs-sm mb-n1">{{ item.name }}</h6><span
+                                            class="fs-xs text-muted">3 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="text-nowrap">
+
+                                    <button class="btn-like like" value="{{ item.id }}"
+                                            type="button">{{ item.likecoursecomment_set | like_count }}</button>
+                                    <button class="btn-dislike dislike" value="{{ item.id }}"
+                                            type="button">{{ item.likecoursecomment_set | dislike_count }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- Pagination-->
+                    <nav class="d-lg-flex justify-content-between align-items-center text-center text-lg-start pt-grid-gutter pb-3">
+                        <div class="d-lg-flex align-items-center w-100"><span class="fs-sm text-muted ms-lg-3">Showing 5 of 15 reviews</span>
+                            <div class="progress w-100 my-3 mx-auto mx-lg-0" style="max-width: 10rem; height: 4px;">
+                                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="18"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Related products (carousel)-->
+</main>
+
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static '' %}vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static '' %}vendor/simplebar/dist/simplebar.min.js"></script>
+<script src="{% static '' %}vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="{% static '' %}vendor/lightgallery.js/dist/js/lightgallery.min.js"></script>
+<script src="{% static '' %}vendor/lg-video.js/dist/lg-video.min.js"></script>
+<script src="{% static '' %}vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+<!-- Main theme script-->
+<script src="{% static '' %}js/theme.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).on('click', '.like', function (e) {
+        e.preventDefault();
+        const x = this
+        $.ajax({
+            type: 'POST',
+            url: '/like-course-comment',
+            data: {
+                commentid: this.value,
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+                x.innerHTML = json.total
+            },
+            error: function (xhr, errmsg, err) {
+                if (confirm('برای ثبت نظر اول باید وارد اکانت خود شوید یا ثبت نام کنید.')) {
+                    window.location.href = '/login'
+                }
+            }
+        });
+    })
+
+    $(document).on('click', '.dislike', function (e) {
+        e.preventDefault();
+        const x = this
+        $.ajax({
+            type: 'POST',
+            url: '/dislike-course-comment',
+            data: {
+                commentid: this.value,
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+                x.innerHTML = json.total
+            },
+            error: function (xhr, errmsg, err) {
+                if (confirm('برای ثبت نظر اول باید وارد اکانت خود شوید یا ثبت نام کنید.')) {
+                    window.location.href = '/login'
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

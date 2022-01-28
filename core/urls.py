@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('', include('app_home.urls')),
     path('', include('app_user.urls')),
+    path('', include('app_course.urls')),
 ]
 
 if DEBUG:
