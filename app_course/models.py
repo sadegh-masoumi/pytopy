@@ -33,15 +33,18 @@ class Course(models.Model):
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True, verbose_name='نام در url')
 
     name = models.CharField(max_length=150, verbose_name='نام')
-
     description = models.TextField(verbose_name='توضیحات')
+    price = models.IntegerField(verbose_name='قیمت')
+    time = models.TimeField(verbose_name='زمان دوره')
+
+    teacher = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='مدرس')
 
     main_image = models.FileField(upload_to='course/images/main', verbose_name='عکس اصلی', blank=True, null=True)
     alt_image = models.CharField(max_length=100, verbose_name='alt عکس', blank=True, null=True)
 
-    price = models.IntegerField(verbose_name='قیمت')
-
     discount = models.IntegerField(default=0, verbose_name='تخفیف', blank=True, null=True)
+
+    label = models.CharField(null=True, blank=True, max_length=50)
 
     title_page = models.CharField(max_length=160, verbose_name='عنوان صفحه محصول(برای SEO)')
     description_page = models.CharField(max_length=340, verbose_name='توضیحات صفحه محصول(برای SEO)')
@@ -76,6 +79,9 @@ class CourseComment(models.Model):
 
     replay = models.ForeignKey('CourseComment', on_delete=models.CASCADE, verbose_name='ریپلای', blank=True, null=True)
     is_active = models.BooleanField(default=False, verbose_name='نمایش/عدم نمایش')
+
+    def __str__(self):
+        return self.name
 
 
 class LikeCourseComment(models.Model):

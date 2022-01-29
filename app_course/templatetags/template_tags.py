@@ -1,6 +1,5 @@
 from django import template
-from app_course.models import Course
-# from ptp_comments.models import LikeCourseComment
+from app_course.models import Course, LikeCourseComment
 
 register = template.Library()
 
@@ -40,13 +39,13 @@ def amount_after_discount(product):
 register.filter('amount_after_discount', amount_after_discount)
 
 
-# def like_count(like_comments: LikeCourseComment):
-#     return like_comments.filter(value=True).count()
-#
-#
-# def dislike_count(like_comments: LikeCourseComment):
-#     return like_comments.filter(value=False).count()
-#
-#
-# register.filter('like_count', like_count)
-# register.filter('dislike_count', dislike_count)
+def like_count(like_comments: LikeCourseComment):
+    return like_comments.filter(value=True).count()
+
+
+def dislike_count(like_comments: LikeCourseComment):
+    return like_comments.filter(value=False).count()
+
+
+register.filter('like_count', like_count)
+register.filter('dislike_count', dislike_count)

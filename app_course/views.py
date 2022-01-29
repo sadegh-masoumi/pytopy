@@ -12,8 +12,9 @@ class Courses(ListView):
     model = Course
 
 
-def view_single_course(request, course_id, **kwargs):
-    course = get_object_or_404(Course, id=course_id)
+def view_single_course(request, pk, **kwargs):
+    course = get_object_or_404(Course, id=pk)
+
     course_comments = CourseComment.objects.filter(is_active=True, course=course)
     course_comments_form = CourseCommentsForm(request.POST or None)
 
@@ -24,12 +25,7 @@ def view_single_course(request, course_id, **kwargs):
     }
 
     if course_comments_form.is_valid():
-        name = course_comments_form.cleaned_data.get('name')
-        email = course_comments_form.cleaned_data.get('email')
-        star = course_comments_form.cleaned_data.get('star')
-        description = course_comments_form.cleaned_data.get('description')
-
-        CourseComment.objects.create(course=course, name=name, email=email, star=star, description=description)
+        CourseComment.objects.create(course=course, **course_comments_form.cleaned_data)
         context['send_comment'] = True
 
     return render(request, 'single_course.html', context)

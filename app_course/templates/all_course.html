@@ -43,7 +43,7 @@
                             <!-- Item-->
                             <div class="col-md-4 col-sm-6 mb-grid-gutter">
                                 <div class="card card-product card-hover">
-                                    <span class="badge badge-floating badge-pill bg-success">New</span>
+                                    <span class="badge badge-floating badge-pill bg-success">{{ item }}</span>
                                     <a class="card-img-top" href="/course/{{ item.id }}/{{ item.slug }}">
                                         <img src="{{ item.main_image.url }}" alt="{{ item.alt_image }}">
                                     </a>
@@ -62,18 +62,22 @@
                                         {% endif %}
                                     </div>
                                     <div class="card-footer">
-                                        <div class="d-flex align-items-center"><a class="btn-wishlist" href="#"><i
-                                                class="ai-user"></i><span
-                                                style="font-size: 12px;margin-right: 3px">محمد صادق معصومی</span></a>
+                                        <div class="d-flex align-items-center">
+                                            <a class="btn-wishlist" href="#">
+                                                <i class="ai-user"></i>
+                                                <span style="font-size: 12px;margin-right: 3px">
+                                                    {{ item.teacher.get_full_name }}
+                                            </span>
+                                            </a>
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <a class="btn-wishlist" href="#"><i class="ai-heart"></i>
-                                                <span class="btn-tooltip">Wishlist</span>
+                                                <span class="btn-tooltip">مورد علاقه</span>
                                             </a>
                                             <span class="btn-divider">
                                                 </span>
                                             <a class="" href="#">
-                                                <span class="">5:20</span>
+                                                <span class="">{{ item.time.hour }}:{{ item.time.minute }}</span>
                                                 <i class="ai-clock"></i>
                                             </a>
                                         </div>
