@@ -1,0 +1,141 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>تماس با پای تو پای pytopy</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="اطلاعات تماس و ارتباط با مجموعه پای تو پای pytopy">
+    <meta name="keywords"
+          content="تماس با پای تو پای">
+
+    {% include 'includes/HeaderLink.html' %}
+
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/lightgallery.js/dist/css/lightgallery.min.css' %}"/>
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+    {% render_partial 'core.partial_views.header_light' %}
+    <!-- Page content-->
+    <!-- Page title-->
+    <section class="jarallax bg-gradient pt-5 pb-7 pt-md-7" data-jarallax data-speed="0.25"><span
+            class="position-absolute top-0 start-0 w-100 h-100 bg-gradient opacity-80"></span>
+        <div class="jarallax-img"
+             style="background-image: url({% static 'img/pages/contacts/contact-us.jpg' %});"></div>
+        <div class="shape shape-bottom shape-slant bg-body">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
+                <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
+            </svg>
+        </div>
+        <div class="container position-relative zindex-5 pt-3 pb-7 pt-md-0">
+            <div class="row justify-content-center pb-7">
+                <div class="col-lg-10">
+                    <h1 class="text-light">ارتباط با پای تو پای</h1>
+                    <p class="text-light">مجموعه پای تو پای برای بهتر کردن سطح کیفیت مطالب خود همواره میکوشد تا صمیمانه
+                        و با دقت به نظرات و پیشنهادات و انتقادات شما عزیزات توجه کند.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact form + details-->
+    <section class="container position-relative zindex-5 pb-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-7 offset-lg-1 pb-2 mb-5" style="margin-top: -260px;">
+                <div class="card border-0 shadow-lg">
+                    {% if send_message %}
+                        <div style="padding: 20px">
+                            <h3 style="color: #16c995" class="h4 pb-2">بازخورد شما با موفقیت ثبت شد</h3>
+                            <p style="color: #16c995">با تشکر از شما که نظر خود را با ما در میان گذاشتید.</p>
+                        </div>
+                    {% else %}
+                        <form class="card-body needs-validation p-5" action="" method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_fullName">نام کامل<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ contactForm.fullName }}
+                                <div class="invalid-feedback">لطفا نام خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_email">ایمیل<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ contactForm.email }}
+                                <div class="invalid-feedback">لطفا آدرس ایمیل خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_number">شماره تماس</label>
+                                {{ contactForm.number }}
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_title">موضوع<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ contactForm.title }}
+                                <div class="invalid-feedback">لطفا موضوع پیام خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_message">پیام<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ contactForm.message }}
+                                <div class="invalid-feedback">لطفا پیام خود را وارد کنید!</div>
+                            </div>
+                            <div class="text-center pt-2">
+                                <button class="btn btn-primary" type="submit">ارسال</button>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 offset-md-1">
+                <h2 class="h4 pb-3">اطلاعات تماس</h2>
+                <h3 class="h6 pb-2">ایران، تهران</h3>
+                <ul class="list-unstyled fs-sm pb-3">
+                    <li class="d-flex align-items-center mb-3"><i class="ai-mail fs-xl text-muted ms-2 ps-1"></i>
+                        <div>pytopy.ir@gmail.com</div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3"><i class="ai-phone fs-xl text-muted ms-2 ps-1"></i>
+                        <div dir="ltr">+98 935 900 5490</div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3"><i class="ai-instagram fs-xl text-muted ms-2 ps-1"></i>
+                        <div dir="ltr">pytopy.ir</div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3"><i class="ai-telegram fs-xl text-muted ms-2 ps-1"></i>
+                        <div dir="ltr">pytopy</div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3"><i class="ai-youtube fs-xl text-muted ms-2 ps-1"></i>
+                        <div dir="ltr">pytopy</div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3"><i class="ai-linkedin fs-xl text-muted ms-2 ps-1"></i>
+                        <div dir="ltr">pytopy.ir</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/simplebar/dist/simplebar.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/lightgallery.js/dist/js/lightgallery.min.js' %}"></script>
+<script src="{% static 'vendor/jarallax/dist/jarallax.min.js' %}"></script>
+<script src="{% static 'vendor/cleave.js/dist/cleave.min.js' %}"></script>
+<!-- Main theme script-->
+<script src="{% static 'js/theme.min.js' %}"></script>
+</body>
+</html>

@@ -8,11 +8,8 @@
     <title>{{ course.titlePage }}</title>
     <!-- SEO Meta Tags-->
     <meta name="description" content="{{ course.descriptionPage }}">
-    <meta name="keywords"
-          content="">
 
     {% include 'includes/HeaderLink.html' %}
-
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
     <link rel="stylesheet" media="screen" href="{% static 'vendor/lightgallery.js/dist/css/lightgallery.min.css' %}"/>
@@ -37,32 +34,38 @@
         <div class="container">
             <div class="row">
                 <!-- Product info-->
-
-
                 <div class="col-lg-6 content py-4">
                     <h1 class="mb-3 pb-4 fs-xl">{{ course.name }}</h1>
                     <!-- Product gallery-->
                     <div class="product-gallery">
                         <div class="product-gallery-preview order-sm-2">
-                            <div class="product-gallery-preview-item active" id="first"><img
-                                    src="{{ course.main_image.url }}" alt="{{ course.alt_image }}"></div>
+                            <div class="product-gallery-preview-item active" id="first">
+                                <img src="{{ course.main_image.url }}" alt="{{ course.alt_image }}">
+                            </div>
                         </div>
-
                     </div>
                     <!-- Sharing-->
                     <div class="d-flex align-items-center justify-content-center justify-content-md-start py-4 pt-md-0 pt-lg-5">
-                        <h6 class="text-nowrap my-2 ms-3">به اشترک گذاری :</h6><a
-                            class="btn-social bs-outline bs-facebook ms-2 my-2" href="#"><i class="ai-facebook"></i></a><a
-                            class="btn-social bs-outline bs-twitter ms-2 my-2" href="#"><i class="ai-twitter"></i></a><a
-                            class="btn-social bs-outline bs-google ms-2 my-2" href="#"><i class="ai-google"></i></a><a
-                            class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
+                        <h6 class="text-nowrap my-2 ms-3">به اشترک گذاری :</h6>
+                        <a class="btn-social bs-outline bs-facebook ms-2 my-2" href="#">
+                            <i class="ai-facebook"></i>
+                        </a>
+                        <a class="btn-social bs-outline bs-twitter ms-2 my-2" href="#">
+                            <i class="ai-twitter"></i>
+                        </a>
+                        <a class="btn-social bs-outline bs-google ms-2 my-2" href="#">
+                            <i class="ai-google"></i>
+                        </a>
+                        <a class="btn-social bs-outline bs-email ms-2 my-2" href="#">
+                            <i class="ai-mail"></i>
+                        </a>
                     </div>
                 </div>
-
                 <div class="col-lg-6 sidebar bg-secondary pt-5 ps-lg-4 pb-md-2">
-                    <div class="ps-lg-4 pb-5"><a class="d-inline-block text-decoration-none" href="#reviews"
-                                                 data-scroll>
-                        <span class="text-body fs-sm">بیش از 60 شرکت کننده</span></a>
+                    <div class="ps-lg-4 pb-5">
+                        <a class="d-inline-block text-decoration-none" href="#reviews" data-scroll>
+                            <span class="text-body fs-sm">بیش از 60 شرکت کننده</span>
+                        </a>
                         <div class="py-4">
                             <del class="text-muted me-2">{{ course.price | amount }}</del>
                             <span class="h4 mb-0">{{ course | amount_after_discount }} تومان</span>
@@ -89,17 +92,18 @@
                         <a class="fancy-link fs-sm" href="#more-info" data-scroll>Read more</a>
                         <hr class="my-4">
                         <ul class="list-unstyled fs-sm">
-                            <li><span class="text-heading fw-medium me-2">کد:</span>
+                            <li>
+                                <span class="text-heading fw-medium me-2">کد:</span>
                                 1
                             </li>
-                            <li><span class="text-heading fw-medium me-2">دسته بندی:</span><a
-                                    class="text-body text-decoration-none" href="#">
-                                وب</a></li>
+                            <li>
+                                <span class="text-heading fw-medium me-2">دسته بندی:</span>
+                                <a class="text-body text-decoration-none" href="#">
+                                    وب</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -109,14 +113,14 @@
             <div class="row align-items-center pb-3 mb-5">
                 <div class="col-lg-4 col-md-4  order-md-2 pb-2 mb-4 pb-md-0 mb-md-0">
                     <div class="bg-secondary bg-size-cover bg-position-center rounded-3 py-7 px-4 text-center"
-                         style="background-image: url({% static '' %}img/shop/single/video.jpg);"><a
-                            class="btn-video btn-video-sm my-4" href="https://www.youtube.com/watch?v=d1qnvK3ID_w"></a>
+                         style="background-image: url({% static '' %}img/shop/single/video.jpg);">
+                        <a class="btn-video btn-video-sm my-4" href="https://www.youtube.com/watch?v=d1qnvK3ID_w">
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-8 offset-lg-1 order-md-1">
                     <h2 class="h3 mb-4">High quality materials</h2>
                     <p class="fs-md">
-
                         فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
                         این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
                         برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
@@ -158,16 +162,14 @@
                     <p class="fs-sm">​Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore.</p>
                 </div>
-                <div class="col-lg-3 col-md-3"><img class="d-block mx-auto mb-4 mb-md-0"
-                                                    src="{% static '' %}img/shop/single/map.png" alt="Map"
-                                                    width="290">
+                <div class="col-lg-3 col-md-3">
+                    <img class="d-block mx-auto mb-4 mb-md-0"
+                         src="{% static '' %}img/shop/single/map.png" alt="Map"
+                         width="290">
                 </div>
-
             </div>
         </div>
     </section>
-
-
     <section class="mt-1 pt-3 pt-md-0 pb-5 pb-md-6 mb-5 mb-md-6 border-bottom" id="download">
         <div class="container">
             <div class="row align-items-center pb-3 mb-5">
@@ -175,40 +177,29 @@
                     <div class="bg-secondary bg-size-cover bg-position-center rounded-3 py-7 px-4 ">
                         <ul class="list-group list-group-flush" style="padding: 0">
                             <li class="list-group-item video-item">
-
                                 <span class="video-num">1</span>
                                 <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
                                 <div class="video-time">00:05:47</div>
-
                                 <a class="download-link"><i class="ai-download"></i></a>
                             </li>
                             <li class="list-group-item video-item">
-
                                 <span class="video-num">2</span>
                                 <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
                                 <div class="video-time">00:05:47</div>
-
                                 <a class="download-link"><i class="ai-download"></i></a>
                             </li>
                             <li class="list-group-item video-item">
-
                                 <span class="video-num">3</span>
                                 <div class="video-title">مفاهیم اولیه زبان در 10 دقیقه</div>
                                 <div class="video-time">00:05:47</div>
-
                                 <a class="download-link"><i class="ai-download"></i></a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
-
-
     <!-- Reviews-->
     <section class="pb-5 pt-2 pt-md-0 mb-5 mb-sm-6 border-bottom" id="reviews">
         <div class="container pb-3">
@@ -280,12 +271,12 @@
                         <!-- Review-->
                         <div class="{% if not forloop.first %}pt-grid-gutter {% endif %} pb-grid-gutter border-bottom">
                             <div class="d-flex align-items-center mb-2 pb-1">
-                                <div class="star-rating-lg ms-2 star-rating mt-n1"><i
-                                        class="sr-star ai-star-filled active"></i><i
-                                        class="sr-star ai-star-filled active"></i><i
-                                        class="sr-star ai-star-filled active"></i><i
-                                        class="sr-star ai-star-filled active"></i><i
-                                        class="sr-star ai-star-filled active"></i>
+                                <div class="star-rating-lg ms-2 star-rating mt-n1">
+                                    <i class="sr-star ai-star-filled active"></i>
+                                    <i class="sr-star ai-star-filled active"></i>
+                                    <i class="sr-star ai-star-filled active"></i>
+                                    <i class="sr-star ai-star-filled active"></i>
+                                    <i class="sr-star ai-star-filled active"></i>
                                 </div>
                                 <span class="fs-sm text-muted">76٪ از کاربران این بررسی را مفید دانستند</span>
                             </div>
@@ -293,16 +284,16 @@
                                 {{ item.description }}
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center me-3"><img class="rounded-circle"
-                                                                                 src="{% static '' %}img/testimonials/07.jpg"
-                                                                                 alt="Barbara Palson" width="42">
+                                <div class="d-flex align-items-center me-3">
+                                    <img class="rounded-circle"
+                                         src="{% static 'img/testimonials/07.jpg' %}"
+                                         alt="Barbara Palson" width="42">
                                     <div class="pe-2 me-1">
-                                        <h6 class="fs-sm mb-n1">{{ item.name }}</h6><span
-                                            class="fs-xs text-muted">3 days ago</span>
+                                        <h6 class="fs-sm mb-n1">{{ item.name }}</h6>
+                                        <span class="fs-xs text-muted">3 days ago</span>
                                     </div>
                                 </div>
                                 <div class="text-nowrap">
-
                                     <button class="btn-like like" value="{{ item.id }}"
                                             type="button">{{ item.likecoursecomment_set | like_count }}</button>
                                     <button class="btn-dislike dislike" value="{{ item.id }}"
@@ -322,30 +313,27 @@
                         <button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>
                     </nav>
                 </div>
-
             </div>
         </div>
     </section>
     <!-- Related products (carousel)-->
 </main>
-
 <!-- Footer-->
 {% render_partial 'core.partial_views.footer' %}
-
 <!-- Back to top button-->
 <a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
     <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
     <i class="btn-scroll-top-icon ai-arrow-up"> </i>
 </a>
 <!-- Vendor scrits: js libraries and plugins-->
-<script src="{% static '' %}vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{% static '' %}vendor/simplebar/dist/simplebar.min.js"></script>
-<script src="{% static '' %}vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script src="{% static '' %}vendor/lightgallery.js/dist/js/lightgallery.min.js"></script>
-<script src="{% static '' %}vendor/lg-video.js/dist/lg-video.min.js"></script>
-<script src="{% static '' %}vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/simplebar/dist/simplebar.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/lightgallery.js/dist/js/lightgallery.min.js' %}"></script>
+<script src="{% static 'vendor/lg-video.js/dist/lg-video.min.js' %}"></script>
+<script src="{% static 'vendor/tiny-slider/dist/min/tiny-slider.js' %}"></script>
 <!-- Main theme script-->
-<script src="{% static '' %}js/theme.min.js"></script>
+<script src="{% static 'js/theme.min.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).on('click', '.like', function (e) {
