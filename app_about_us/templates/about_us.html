@@ -1,0 +1,225 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>درباره ی پای تو پای pytopy آموزش تخصصی پایتون</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="اطلاعاتی در مورد مجموعه پای تو پای و حوضه های فعالیتی پای تو پای">
+    <meta name="keywords"
+          content="درباره ی ما، پای تو پای، درباره پای تو پای">
+
+    {% include 'includes/HeaderLink.html' %}
+
+    <link rel="stylesheet" media="screen" href="{% static '' %}vendor/lightgallery.js/dist/css/lightgallery.min.css"/>
+
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+    {% render_partial 'core.partial_views.header_light' %}
+    <!-- Intro-->
+    <section class="container my-lg-2 pt-5 pb-lg-7">
+        <div class="row align-items-center">
+            <div class="col-lg-8 py-3 py-lg-0">
+                <h1>درباره پای تو پای</h1>
+                <h2 class="h3">تیمی متشکل از دوستداران پایتون</h2>
+                <div class="py-4">
+                    <p class="callout">ما سعی میکنیم که مطالبی که خود یاد میگیریم را با شما به اشتراک بگذاریم.</p>
+                </div>
+                <a class="btn-video btn-video-primary btn-video-sm ms-3"
+                   href="#"></a><span class="fs-sm text-muted">بهتر با ما آشنا شوید ...</span>
+            </div>
+
+        </div>
+    </section>
+    <!-- Statistics-->
+    <section class="bg-secondary py-5 mt-n4 mb-6 mt-lg-0 mb-lg-7">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 text-center py-3">
+                    <h3 class="display-5">10</h3>
+                    <p class="text-muted mb-0">تعداد مقالات</p>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center py-3">
+                    <h3 class="display-5">2+</h3>
+                    <p class="text-muted mb-0">تعداد آموش ها</p>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center py-3">
+                    <h3 class="display-5">1000</h3>
+                    <p class="text-muted mb-0">تعداد کاربران</p>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center py-3">
+                    <h3 class="display-5">100</h3>
+                    <p class="text-muted mb-0">تعداد پرسش و پاسخ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients-->
+    <section class="container pb-5 pb-lg-6">
+        <h2 class="mb-5 text-center ">منابع سایت پای تو پای</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/medium-logo.jpg' %}"
+                                 alt="لوگو سایت medium منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from" src="{% static 'img/shop/brands/medium-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت medium منبع سایت پای تو پای" width="150"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="https://www.python.org/">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/python-logo.jpg' %}"
+                                 alt="لوگو سایت python منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/python-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت python منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="https://www.djangoproject.com/">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/django-logo.jpg' %}"
+                                 alt="لوگو سایت django منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/django-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت django منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to"
+                                 src="{% static 'img/shop/brands/ibm-logo.jpg' %}"
+                                 alt="لوگو سایت ibm منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/ibm-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت ibm منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/RealPython-logo.jpg' %}"
+                                 alt="لوگو سایت RealPython منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/RealPython-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت RealPython منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/towardsDataScience-logo.jpg' %}"
+                                 alt="لوگو سایت towards Data Science منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/towardsDataScience-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت towards Data Science منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/stackOverflow-logo.jpg' %}"
+                                 alt="لوگو سایت stack Overflow منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/stackOverflow-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت stack Overflow منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/Programiz-logo.jpg' %}"
+                                 alt="لوگو سایت Programiz منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/Programiz-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت Programiz منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-6 mb-grid-gutter">
+                <a class="card border-0 shadow card-hover py-3 py-sm-4"
+                   href="#">
+                    <div class="card-body px-1 py-0 text-center">
+                        <div class="swap-image">
+                            <img class="swap-to" src="{% static 'img/shop/brands/GitHup-logo.jpg' %}"
+                                 alt="لوگو سایت GitHup منبع سایت پای تو پای"
+                                 width="150">
+                            <img class="swap-from"
+                                 src="{% static 'img/shop/brands/GitHup-logo-gray.jpg' %}"
+                                 alt="لوگو خاکستری سایت GitHup منبع سایت پای تو پای" width="150">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span
+        class="btn-scroll-top-tooltip text-muted fs-sm me-2">برو بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/lightgallery.js/dist/js/lightgallery.min.js' %}"></script>
+<script src="{% static 'vendor/lg-video.js/dist/lg-video.min.js' %}"></script>
+<!-- Main theme script-->
+<script src="{% static 'js/theme.min.js' %}"></script>
+</body>
+</html>

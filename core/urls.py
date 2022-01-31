@@ -26,7 +26,11 @@ urlpatterns = [
     path('', include('app_home.urls')),
     path('', include('app_user.urls')),
     path('', include('app_course.urls')),
-    path('', include('app_contact_us.urls'))
+    path('', include('app_contact_us.urls')),
+    path('', include('app_article.urls')),
+    path('', include('app_work_with_us.urls')),
+    path('', include('app_about_us.urls')),
+    path('', include('app_dashboard.urls'))
 ]
 
 if DEBUG:

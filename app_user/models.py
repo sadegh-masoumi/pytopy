@@ -49,3 +49,9 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class Follow(models.Model):
+    following = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='دنبال کننده', related_name='following')
+    follower = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='دنبال شونده',
+                                 related_name='follower')

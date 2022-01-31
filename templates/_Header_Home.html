@@ -100,12 +100,12 @@
         {% if request.user.is_authenticated %}
             <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
                 <div class="navbar-tool dropdown">
-                    <a class="navbar-tool-icon-box" href="/account-profile">
+                    <a class="navbar-tool-icon-box" href="{% url 'dashboard' %}">
                         <img class="navbar-tool-icon-box-img" src="{{ request.user.image.url }}"
                              alt="کاربر سایت پای تو پای">
                     </a>
                     <a class="navbar-tool-label dropdown-toggle"
-                       href="/account-profile"><small>سلام ,</small>{{ request.user.username }}
+                       href="{% url 'dashboard' %}"><small>سلام ,</small>{{ request.user.username }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" style="width: 15rem;">
                         <li>
@@ -206,19 +206,19 @@
                 <!-- Menu-->
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link active " href="/">خانه</a>
+                        <a class="nav-link active " href="{%  url 'home' %}">خانه</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/courses">آموزش ها</a>
+                        <a class="nav-link" href="{% url 'courses' %}">آموزش ها</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/articles">مقاله ها</a>
+                        <a class="nav-link" href="{% url 'articles' %}">مقاله ها</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="/work-with-us">همکاری با ما</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/about-us">درباره پای تو پای</a>
+                        <a class="nav-link" href="{% url 'about-us' %}">درباره پای تو پای</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="{% url 'contact-us' %}">تماس با ما</a>

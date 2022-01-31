@@ -1,0 +1,129 @@
+{% load static %}
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>همکاری با پای تو پای pytopy</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="فرم همکاری مجموعه پای تو پای">
+
+    {% include 'includes/HeaderLink.html' %}
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/lightgallery.js/dist/css/lightgallery.min.css' %}"/>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+</head>
+<!-- Body-->
+<body>
+<!-- Page loading spinner-->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<main class="page-wrapper">
+    {% render_partial 'core.partial_views.header_light' %}
+    <!-- Page content-->
+    <!-- Page title-->
+    <section class="jarallax bg-gradient pt-5 pb-7 pt-md-7" data-jarallax data-speed="0.25"><span
+            class="position-absolute top-0 start-0 w-100 h-100 bg-gradient opacity-80"></span>
+        <div class="jarallax-img"
+             style="background-image: url({% static '' %}img/pages/work-with-us/colleagues-us.jpg);"></div>
+        <div class="shape shape-bottom shape-slant bg-body">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 260">
+                <polygon fill="currentColor" points="0,257 0,260 3000,260 3000,0"></polygon>
+            </svg>
+        </div>
+        <div class="container position-relative zindex-5 pt-3 pb-7 pt-md-0">
+            <div class="row justify-content-center pb-7">
+                <div class="col-lg-10">
+                    <h1 class="text-light">فرم همکاری</h1>
+                    <p class="text-light">
+                        باعث افتخار مجموعه پای تو پای است تا با شما همکاری داشته باشد و شما هم عضو این خانواده بزرگ
+                        شوید.
+                    </p>
+                    <p class="text-light">
+                        لطفا فرم زیر را پر کنید و ما در اولین فرصت با شما تماس خواهیم گرفت.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact form + details-->
+    <section class="container position-relative zindex-5 pb-5">
+        <div class="row">
+            <div class="col-lg-12 col-md-6  pb-2 mb-5" style="margin-top: -260px;">
+                <div class="card border-0 shadow-lg">
+                    {% if message %}
+                        <div class="badge bg-success pb-5 pt-5">
+                            <h2 class="text-light">درخواست شما با موفقیت ثبت شد</h2>
+                            <p class="fs-base">باعث افتخار پای تو پای است که با شما همکاری داشته باشد</p>
+                        </div>
+                    {% else %}
+                        <form class="card-body needs-validation p-5" action="" method="post"
+                              enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_fullName">نام کامل<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ form.fullName.errors }}
+                                {{ form.fullName }}
+                                <div class="invalid-feedback">لطفا نام کامل خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_email">آدرس ایمیل<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ form.email }}
+                                <div class="invalid-feedback">لطفا آدرس ایمیل خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_number">شماره همراه<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ form.number }}
+                                <div class="invalid-feedback">لطفا آدرس ایمیل خود را وارد کنید!</div>
+                            </div>
+                            <div class="mb-3 pb-1">
+                                <label class="form-label" for="id_description">رزومه<sup
+                                        class="text-danger me-1">*</sup></label>
+                                {{ form.description }}
+                                <div class="invalid-feedback">لطفا رزومه خود یا توضیحی درباره ی خودتان بنویسید!</div>
+                            </div>
+                            <div class="file-drop-area">
+                                <div class="file-drop-icon ai-upload"></div>
+                                <span class="file-drop-message">آپلود فایل رزومه (حجم زیر 2 مگ)</span>
+                                {{ form.co.errors }}
+                                {{ form.cv }}
+                                <button type="button" class="file-drop-btn btn btn-translucent-primary btn-sm">
+                                    انتخاب فایل رزومه
+                                </button>
+                            </div>
+                            <div class="text-center pt-2">
+                                <button class="btn btn-primary" type="submit">ارسال</button>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+<!-- Footer-->
+{% render_partial 'core.partial_views.footer' %}
+<!-- Back to top button-->
+<a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span
+        class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
+    <i class="btn-scroll-top-icon ai-arrow-up"> </i>
+</a>
+<!-- Vendor scrits: js libraries and plugins-->
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/simplebar/dist/simplebar.min.js' %}"></script>
+<script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+<script src="{% static 'vendor/lightgallery.js/dist/js/lightgallery.min.js' %}"></script>
+<script src="{% static 'vendor/jarallax/dist/jarallax.min.js' %}"></script>
+<script src="{% static 'vendor/cleave.js/dist/cleave.min.js' %}"></script>
+<!-- Main theme script-->
+<script src="{% static 'js/theme.min.js' %}"></script>
+</body>
+</html>
