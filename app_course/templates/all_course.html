@@ -69,15 +69,10 @@
                                             </a>
                                         </div>
                                         <div class="d-flex align-items-center">
-                                            <a class="btn-wishlist" href="#"><i class="ai-heart"></i>
-                                                <span class="btn-tooltip">مورد علاقه</span>
-                                            </a>
-                                            <span class="btn-divider">
-                                                </span>
-                                            <a class="" href="#">
+                                            <span>
                                                 <span class="">{{ item.time.hour }}:{{ item.time.minute }}</span>
                                                 <i class="ai-clock"></i>
-                                            </a>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -93,10 +88,7 @@
 <!-- Footer-->
 {% render_partial 'core.partial_views.footer' %}
 
-<!-- Sidebar toggle button-->
-<button class="btn btn-primary btn-sm sidebar-toggle" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#shop-sidebar"><i class="ai-filter fs-base me-2"></i>Filters
-</button>
+
 <!-- Back to top button-->
 <a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
     <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">بالا</span>
