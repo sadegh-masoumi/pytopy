@@ -31,7 +31,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'pytopyir_test_net',
-            'USER': 'test_net_user',
+            'USER': 'pytopyir_test_net_user',
             'PASSWORD': 'r2+1}aWu~Bk]',
             'HOST': 'localhost',
             'POST': '3306',
