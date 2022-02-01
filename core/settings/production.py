@@ -1,8 +1,5 @@
 from core.settings.base import *
 
-DEBUG = False
-
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 is_test_net = os.environ.get('is_test_net')
