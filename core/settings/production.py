@@ -2,13 +2,7 @@ from core.settings.base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'pytopy.ir',
-    'http://pytopy.ir/',
-    'https://pytopy.ir/',
-    'http://www.pytopy.ir/',
-    'https://www.pytopy.ir/',
-]
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 is_test_net = os.environ.get('is_test_net')
@@ -26,7 +20,21 @@ if is_test_net == 'False':
             }
         }
     }
+    ALLOWED_HOSTS = [
+        'pytopy.ir',
+        'http://pytopy.ir/',
+        'https://pytopy.ir/',
+        'http://www.pytopy.ir/',
+        'https://www.pytopy.ir/',
+    ]
 else:
+    ALLOWED_HOSTS = [
+        'pytopy.ir',
+        'http://t-net.pytopy.ir/',
+        'https://t-net.pytopy.ir/',
+        'http://www.t-net.pytopy.ir/',
+        'https://www.t-net.pytopy.ir/',
+    ]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
