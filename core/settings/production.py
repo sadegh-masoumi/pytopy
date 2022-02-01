@@ -12,7 +12,7 @@ ALLOWED_HOSTS = [
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 is_test_net = os.environ.get('is_test_net')
-if is_test_net == 'false':
+if is_test_net == 'False':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
