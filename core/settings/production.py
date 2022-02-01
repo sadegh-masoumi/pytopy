@@ -11,20 +11,35 @@ ALLOWED_HOSTS = [
 ]
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pytopyir_PyDatabase',
-        'USER': 'pytopyir_PyToPy_main',
-        'PASSWORD': '^6zC9359005490.ms',
-        'HOST': 'localhost',
-        'POST': '3306',
-        'OPTIONS': {
-            'sql_mode': 'STRICT_ALL_TABLES'
+is_test_net = os.environ.get('is_test_net')
+if is_test_net == 'false':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pytopyir_PyDatabase',
+            'USER': 'pytopyir_PyToPy_main',
+            'PASSWORD': '^6zC9359005490.ms',
+            'HOST': 'localhost',
+            'POST': '3306',
+            'OPTIONS': {
+                'sql_mode': 'STRICT_ALL_TABLES'
+            }
         }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pytopyir_test_net',
+            'USER': 'test_net_user',
+            'PASSWORD': 'r2+1}aWu~Bk]',
+            'HOST': 'localhost',
+            'POST': '3306',
+            'OPTIONS': {
+                'sql_mode': 'STRICT_ALL_TABLES'
+            }
+        }
+    }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
