@@ -26,6 +26,11 @@ if is_test_net == 'False':
     ]
 else:
     ALLOWED_HOSTS = [
+        'pytopy.ir',
+        'http://pytopy.ir/',
+        'https://pytopy.ir/',
+        'http://www.pytopy.ir/',
+        'https://www.pytopy.ir/',
         't-net.pytopy.ir',
         'http://t-net.pytopy.ir/',
         'https://t-net.pytopy.ir/',
