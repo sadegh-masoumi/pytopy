@@ -130,19 +130,14 @@
                                style="background-image: url({{ item.cover.url }});">
                             </a>
                             <div class="card-body"><p class="meta-link fs-sm mb-2">{{ item.category.name }}</p>
-                                <h2 class="h4 nav-heading mb-4"><a
-                                        href="/article-detail/{{ item.id }}/{{ item.slug }}">{{ item.title }}</a></h2><a
-                                        class="d-flex meta-link fs-sm align-items-center pt-3"
+                                <h2 class="h4 nav-heading mb-4">
+                                    <a href="/article-detail/{{ item.id }}/{{ item.slug }}">{{ item.title }}</a></h2>
+                                <a class="d-flex meta-link fs-sm align-items-center pt-3"
                                         href="#">
-                                    {% for information in userInformation %}
-                                        <img class="rounded-circle" src="
-
-                                                {% if information.user.id == item.user.id %}{{ information.image.url }}{% endif %}"
-                                             alt="{{ item.user.get_full_name }}" width="36">
-                                    {% endfor %}
+                                    <img class="rounded-circle" src="{{ item.user.image.url }}"
+                                         alt="{{ item.user.get_full_name }}" width="36">
                                     <div class="pe-2 me-1 mt-n1">توسط
-                                        <span
-                                                class="fw-semibold me-1">{{ item.user.get_full_name }}
+                                        <span class="fw-semibold me-1">{{ item.user.get_full_name }}
                                         </span>
                                     </div>
                                 </a>

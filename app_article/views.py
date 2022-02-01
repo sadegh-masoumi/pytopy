@@ -2,20 +2,19 @@ from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render, redirect
 
-from .models import ArticleComments
-from app_user.models import Follow
-from app_user.models import User
-from .models import Article
+from app_user.models import Follow, User
 from app_category.models import Category
+
+from .models import Article, ArticleComments
 from .forms import ArticleCommentForm
 
 
 def view_articles(request):
     articles: Article = Article.articles.all().order_by('-id')
     category = Category.objects.all()
-    lastArticle = Article.articles.order_by('-date')
+    last_article = Article.articles.order_by('-date')
 
-    userInformation = User.objects.filter(pk__in=articles.values_list('user_id', flat=True))
+    user_information = User.objects.filter(pk__in=articles.values_list('user_id', flat=True))
     # -------------------page paginator -------------
 
     paginator = Paginator(articles, 10)
@@ -25,9 +24,9 @@ def view_articles(request):
     context = {
         'articles': page_obj,
         'category': category,
-        'lastArticle': lastArticle,
+        'lastArticle': last_article,
         'paginator': paginator,
-        "userInformation": userInformation
+        "userInformation": user_information
     }
     return render(request, 'articles.html', context)
 
