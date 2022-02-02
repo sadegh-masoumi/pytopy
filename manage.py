@@ -7,8 +7,10 @@ import sys
 def main():
     """Run administrative tasks."""
     if True if os.environ.get('DEBUG') == 'True' else False:
+
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.development')
     else:
+
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.production')
 
     try:
