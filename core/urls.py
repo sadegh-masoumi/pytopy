@@ -13,13 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import os
-
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 
-from core.settings import development
+from core.settings import DEBUG
+from core import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,8 +33,8 @@ urlpatterns = [
     path('', include('app_dashboard.urls'))
 ]
 
-if True if os.environ.get('DEBUG') == 'True' else False:
+if DEBUG:
     # add root static files
-    urlpatterns = urlpatterns + static(development.STATIC_URL, document_root=development.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     # add media static files
-    urlpatterns = urlpatterns + static(development.MEDIA_URL, document_root=development.MEDIA_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
