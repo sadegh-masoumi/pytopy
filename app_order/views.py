@@ -25,7 +25,7 @@ def pay_request(request, course_id):
                    call_back_url=f"http://localhost:8000/pay-verify/{enroll.id}")
     # email and mobile is optimal
     response = pay.send_request(amount=course.get_rial_price(),
-                                description=f'{course.name}ثبت نام و خرید دوره ',
+                                description=f'ثبت نام و خرید دوره {course.name}',
                                 email="pytopy.ir@gmail.com",
                                 mobile='09359005490'
                                 )

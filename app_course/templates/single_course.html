@@ -261,30 +261,30 @@
                                         <label class="form-label px-0" for="id_name">نام شما<span
                                                 class="text-danger me-1">*</span></label>
                                         {{ CommentsForm.name }}
-                                        <div class="invalid-feedback">Please enter your name!</div>
-                                        <small class="form-text text-muted">Will be displayed on the comment.</small>
+                                        <div class="invalid-feedback">لطفا اسم خود را وارد کنید!</div>
+                                        <small class="form-text text-muted">نام شما برای این نظر نمایش داده میشود.</small>
                                     </div>
                                     <div class="mb-3 pb-1">
                                         <label class="form-label px-0" for="id_email">ایمیل شما<span
                                                 class="text-danger me-1">*</span></label>
                                         {{ CommentsForm.email }}
-                                        <div class="invalid-feedback">Please provide valid email address!</div>
-                                        <small class="form-text text-muted">Authentication only - we won't spam
-                                            you.</small>
+                                        <div class="invalid-feedback">لطفا یک ایمیل معتبر وارد کنید!</div>
+                                        <small class="form-text text-muted">
+                                            برای پاسخ به شما به یک ایمیل معتبر نیاز است.</small>
                                     </div>
                                     <div class="mb-3 pb-1">
                                         <label class="form-label px-0" for="id_star">تعداد ستاره<span
                                                 class="text-danger me-1">*</span></label>
                                         {{ CommentsForm.star }}
-                                        <div class="invalid-feedback">Please choose rating!</div>
+                                        <div class="invalid-feedback">لطفاً امتیاز مورد نظر خود را بدهید!</div>
                                     </div>
                                     <div class="mb-3 pb-1">
                                         <labe class="form-label px-0l" for="id_description">توضیحات<span
                                                 class="text-danger me-1">*</span></labe>
                                         {{ CommentsForm.description }}
-                                        <div class="invalid-feedback">Please write a review!</div>
-                                        <small class="form-text text-muted">Your review must be at least 50
-                                            characters.</small>
+                                        <div class="invalid-feedback">لطاً توضیحات خود را تایپ کنید!</div>
+                                        <small class="form-text text-muted">
+                                            باید کم تر از ۵۰ کاراکتر باشد.</small>
                                     </div>
                                     <button class="btn btn-primary btn-shadow d-block w-100" type="submit">
                                         ارسال
@@ -296,31 +296,18 @@
                 </div>
                 <!-- Reviews list-->
                 <div class="col-md-7" style="direction: rtl">
-                    <div class="d-flex justify-content-end pb-4 mb-2">
-                        <div class="d-flex align-items-center">
-                            <label class="form-label px-0 mb-0 text-nowrap ms-2 d-none d-sm-block" for="sort-reviews">Sort
-                                by:</label>
-                            <select class="form-select form-select-sm" id="sort-reviews">
-                                <option>Newest</option>
-                                <option>Oldest</option>
-                                <option>Popular</option>
-                                <option>High rating</option>
-                                <option>Low rating</option>
-                            </select>
-                        </div>
-                    </div>
                     {% for item in courseComments %}
                         <!-- Review-->
                         <div class="{% if not forloop.first %}pt-grid-gutter {% endif %} pb-grid-gutter border-bottom">
                             <div class="d-flex align-items-center mb-2 pb-1">
                                 <div class="star-rating-lg ms-2 star-rating mt-n1">
-                                    <i class="sr-star ai-star-filled active"></i>
-                                    <i class="sr-star ai-star-filled active"></i>
-                                    <i class="sr-star ai-star-filled active"></i>
-                                    <i class="sr-star ai-star-filled active"></i>
-                                    <i class="sr-star ai-star-filled active"></i>
+                                    {% for num in '12345'|make_list %}
+                                        {% if num <= item.star %}
+                                            <i class="sr-star ai-star-filled active"></i>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-                                <span class="fs-sm text-muted">76٪ از کاربران این بررسی را مفید دانستند</span>
+                                <span class="fs-sm text-muted"></span>
                             </div>
                             <p class="fs-md">
                                 {{ item.description }}
@@ -332,7 +319,7 @@
                                          alt="Barbara Palson" width="42">
                                     <div class="pe-2 me-1">
                                         <h6 class="fs-sm mb-n1">{{ item.name }}</h6>
-                                        <span class="fs-xs text-muted">3 days ago</span>
+                                        <span class="fs-xs text-muted">{{ item.date }}</span>
                                     </div>
                                 </div>
                                 <div class="text-nowrap">
@@ -344,16 +331,6 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <!-- Pagination-->
-                    <nav class="d-lg-flex justify-content-between align-items-center text-center text-lg-start pt-grid-gutter pb-3">
-                        <div class="d-lg-flex align-items-center w-100"><span class="fs-sm text-muted ms-lg-3">Showing 5 of 15 reviews</span>
-                            <div class="progress w-100 my-3 mx-auto mx-lg-0" style="max-width: 10rem; height: 4px;">
-                                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="18"
-                                     aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-outline-primary btn-sm" type="button">Show older reviews</button>
-                    </nav>
                 </div>
             </div>
         </div>
@@ -394,7 +371,7 @@
             },
             error: function (xhr, errmsg, err) {
                 if (confirm('برای ثبت نظر اول باید وارد اکانت خود شوید یا ثبت نام کنید.')) {
-                    window.location.href = '/login'
+                    window.location.href = '{% url 'login' %}'
                 }
             }
         });

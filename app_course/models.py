@@ -91,6 +91,7 @@ class CourseComment(models.Model):
     description = models.TextField()
     star = models.CharField(max_length=1, choices=STARS)
 
+    date = models.DateTimeField(auto_now_add=True)
     replay = models.ForeignKey('CourseComment', on_delete=models.CASCADE, verbose_name='ریپلای', blank=True, null=True)
     is_active = models.BooleanField(default=False, verbose_name='نمایش/عدم نمایش')
 
