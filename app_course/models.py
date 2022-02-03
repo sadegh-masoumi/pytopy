@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.db.models import Q
 from app_user.models import User
+from django.urls import reverse
 
 STARS = [
     ('1', 'یک ستاره'),
@@ -35,7 +36,7 @@ class Course(models.Model):
 
     name = models.CharField(max_length=150, verbose_name='نام')
     description = models.TextField(verbose_name='توضیحات')
-    price = models.IntegerField(verbose_name='قیمت')
+    price = models.IntegerField(verbose_name='قیمت به تومان')
     time = models.TimeField(verbose_name='زمان دوره')
 
     teacher = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='مدرس')
@@ -43,7 +44,7 @@ class Course(models.Model):
     main_image = models.FileField(upload_to='course/images/main', verbose_name='عکس اصلی', blank=True, null=True)
     alt_image = models.CharField(max_length=100, verbose_name='alt عکس', blank=True, null=True)
 
-    discount = models.IntegerField(default=0, verbose_name='تخفیف', blank=True, null=True)
+    discount = models.IntegerField(default=0, verbose_name='درصد تخفیف')
 
     label = models.CharField(null=True, blank=True, max_length=50)
 
@@ -59,7 +60,19 @@ class Course(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return f'/courses/{self.id}/{self.slug}'
+        return reverse('single-curse', kwargs={'pk': self.pk, 'slug': self.slug})
+
+    def get_payment_url(self):
+        return reverse('pay-request', kwargs={'course_id': self.pk})
+
+    def get_final_price(self) -> int:
+        price = self.price
+        if self.discount > 0:
+            price = self.price - ((self.discount / 100) * self.price)
+        return price
+
+    def get_rial_price(self) -> int:
+        return self.get_final_price() * 10
 
 
 def course_pre_save_receiver(sender, instance, *args, **kwargs):
@@ -90,3 +103,30 @@ class LikeCourseComment(models.Model):
     courseComment = models.ForeignKey(CourseComment, on_delete=models.RESTRICT)
 
     value = models.BooleanField(choices=Likes)
+
+
+class Season(models.Model):
+    course = models.ForeignKey(Course, models.CASCADE)
+    title = models.CharField(max_length=100)
+    number = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.title} : {self.course}'
+
+
+class Episode(models.Model):
+    course = models.ForeignKey(Course, models.CASCADE)
+    season = models.ForeignKey(Season, models.CASCADE)
+
+    link = models.URLField()
+    number = models.IntegerField()
+    time = models.CharField(max_length=10)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+
+    is_active = models.BooleanField(default=True)
+
+    is_free = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.title} {self.season}'

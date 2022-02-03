@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'app_about_us.apps.AppAboutUsConfig',
     'app_work_with_us.apps.AppWorkWithUsConfig',
     'app_dashboard.apps.AppDashboardConfig',
+    'app_order.apps.AppOrderConfig'
 ]
 
 MIDDLEWARE = [

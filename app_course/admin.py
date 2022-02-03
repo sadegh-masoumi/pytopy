@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, CourseComment, LikeCourseComment
+from .models import Course, CourseComment, LikeCourseComment, Episode, Season
 
 
 class CustomCourseCommentAdmin(admin.ModelAdmin):
@@ -13,3 +13,5 @@ class CustomCurseAdmin(admin.ModelAdmin):
 admin.site.register(Course, CustomCurseAdmin)
 admin.site.register(CourseComment, CustomCourseCommentAdmin)
 admin.site.register(LikeCourseComment)
+admin.site.register(Episode)
+admin.site.register(Season)
