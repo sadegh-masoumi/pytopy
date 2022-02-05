@@ -9,5 +9,7 @@ from . import views
 urlpatterns = [
     path('courses', views.Courses.as_view(), name='courses'),
 
-    path('course/<int:pk>/<slug:slug>', views.view_single_course, name='single-curse')
+    path('course/<int:pk>/<slug:slug>', views.view_single_course, name='single-curse'),
+
+    path('download/<episode_pk>', views.download_file, name='download-file'),
 ]

@@ -37,7 +37,7 @@ class Course(models.Model):
     name = models.CharField(max_length=150, verbose_name='نام')
     description = models.TextField(verbose_name='توضیحات')
     price = models.IntegerField(verbose_name='قیمت به تومان')
-    time = models.TimeField(verbose_name='زمان دوره')
+    time = models.CharField(max_length=10, verbose_name='زمان دوره')
 
     teacher = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='مدرس')
 
@@ -116,18 +116,27 @@ class Season(models.Model):
 
 
 class Episode(models.Model):
+    title = models.CharField(max_length=100)
+
     course = models.ForeignKey(Course, models.CASCADE)
     season = models.ForeignKey(Season, models.CASCADE)
 
-    link = models.URLField()
-    number = models.IntegerField()
+    path = models.CharField(max_length=255)
+    number = models.IntegerField(auto_created=True)
     time = models.CharField(max_length=10)
-    title = models.CharField(max_length=100)
     description = models.TextField()
 
     is_active = models.BooleanField(default=True)
-
     is_free = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.title} {self.season}'
+
+
+class UserDownloadEpisode(models.Model):
+    episode = models.ForeignKey(Episode, models.CASCADE)
+    user = models.ForeignKey(User, models.CASCADE)
+    count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.episode}"

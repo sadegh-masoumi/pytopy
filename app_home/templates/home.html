@@ -183,13 +183,6 @@
                                    href="#">
                                     {% for information in userInformation %}
                                         <img class="rounded-circle" src="
-
-
-
-
-
-
-
                                                 {% if information.user.id == item.user.id %}{{ information.image.url }}{% endif %}"
                                              alt="{{ item.user.get_full_name }}" width="36">
                                     {% endfor %}
