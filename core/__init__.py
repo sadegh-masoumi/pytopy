@@ -1,6 +1,6 @@
 import os
 
-if not (True if os.environ.get('DEBUG') == 'True' else False):
+if not (os.environ.get('DEBUG') == 'True'):
     import pymysql
 
     pymysql.install_as_MySQLdb()
