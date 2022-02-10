@@ -11,7 +11,7 @@
     <meta name="keywords"
           content="پایتون، جنگو، هوش مصنوعی، دیتا ماینینگ، ربات پایتون، پای تو پای ، پایتوپای، مرجع زبان برنامه نویسی پایتون، ">
 
-    {% include 'includes/HeaderLink.html' %}
+    {% include 'includes/HeaderLink_without_loader.html' %}
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
     <link rel="stylesheet" media="screen" href="{% static 'vendor/tiny-slider/dist/tiny-slider.css' %}"/>
@@ -19,13 +19,7 @@
 </head>
 <!-- Body-->
 <body>
-<!-- Page loading spinner-->
-<div class="page-loading active">
-    <div class="page-loading-inner">
-        <div class="page-spinner"></div>
-        <span>Loading...</span>
-    </div>
-</div>
+
 <main class="page-wrapper">
     {% render_partial 'core.partial_views.header_home' %}
     {% if messages %}
