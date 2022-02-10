@@ -34,8 +34,10 @@ urlpatterns = [
     path('', include('app_dashboard.urls')),
     path('', include('app_order.urls')),
 ]
+
 handler404 = "app_404.views.page_404"
-if True if os.environ.get('DEBUG') == 'True' else False:
+
+if os.environ.get('DEBUG', default='True') == 'True':
     # add root static files
     urlpatterns = urlpatterns + static(development.STATIC_URL, document_root=development.STATIC_ROOT)
     # add media static files
