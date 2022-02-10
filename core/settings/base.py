@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-)&-1w3as5lbnu00-#z^pkt*szl*9tmh#6p-iq(byqzb6ee%84q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = os.environ.get('DEBUG', default='True') == 'True'
 
 # Application definition
 
@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'app_about_us.apps.AppAboutUsConfig',
     'app_work_with_us.apps.AppWorkWithUsConfig',
     'app_dashboard.apps.AppDashboardConfig',
-    'app_order.apps.AppOrderConfig'
+    'app_order.apps.AppOrderConfig',
+    'app_404.apps.App404Config'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -105,4 +105,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
