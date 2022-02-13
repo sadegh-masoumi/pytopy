@@ -1,10 +1,16 @@
+import requests
+import secrets
+import string
+
 from app_course.models import Course
+from core.settings.base import DOWNLOAD_API, PYTOPY_TOKEN, MERCHANT_ID, DEBUG
 from .models import Enroll
 from .zarinpal import ZarinPal
+
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import Http404, redirect, reverse
+from django.shortcuts import Http404, redirect
 from django.contrib import messages
 
 
@@ -20,9 +26,14 @@ def pay_request(request, course_id):
 
     enroll, _ = Enroll.objects.get_or_create(user=request.user, course=course, is_pay=False,
                                              amount=course.get_final_price())
+    if DEBUG:
+        call_back_url = f"http://localhost:8000/pay-verify/{enroll.id}"
+    else:
+        call_back_url = f"https://pytopy.ir/pay-verify/{enroll.id}"
 
-    pay = ZarinPal(merchant='6d1c6f92-57e9-4d33-b922-6fda2424b34f',
-                   call_back_url=f"http://localhost:8000/pay-verify/{enroll.id}")
+    pay = ZarinPal(merchant=MERCHANT_ID,
+                   call_back_url=call_back_url)
+
     # email and mobile is optimal
     response = pay.send_request(amount=course.get_rial_price(),
                                 description=f'ثبت نام و خرید دوره {course.name}',
@@ -37,7 +48,7 @@ def pay_request(request, course_id):
 
 
 def pay_verify(request, enroll_id, *args, **kwargs):
-    pay = ZarinPal(merchant='6d1c6f92-57e9-4d33-b922-6fda2424b34f')
+    pay = ZarinPal(merchant=MERCHANT_ID)
     enroll = Enroll.objects.filter(id=enroll_id).first()
 
     if enroll is None:
@@ -47,8 +58,19 @@ def pay_verify(request, enroll_id, *args, **kwargs):
 
     if response.get("transaction"):
         if response.get("pay"):
+            alphabet = string.ascii_letters + string.digits
+            token = ''.join(secrets.choice(alphabet) for i in range(20))
+            data = {
+                'client_token': token,
+                'authorization': PYTOPY_TOKEN,
+                'username': enroll.user.username,
+            }
+            requests.post(url=DOWNLOAD_API + 'create-client', data=data)
+
             enroll.is_pay = True
+            enroll.token = token
             enroll.save()
+
             messages.success(request, 'شما با موفقیت  در دوره ثبت نام کرده اید. تبریک مطمئنم میترکونی :)')
             return redirect(enroll.course.get_absolute_url())
         else:
@@ -56,9 +78,9 @@ def pay_verify(request, enroll_id, *args, **kwargs):
             return redirect(enroll.course.get_absolute_url())
     else:
         if response.get("status") == "ok":
-            messages.debug(request, f'{response.get("error_code") : response.get("message")}')
+            messages.error(request, f'{response.get("error_code") : response.get("message")}')
             return redirect(enroll.course.get_absolute_url())
 
         elif response.get("status") == "cancel":
-            messages.debug(request, 'تراکنش ناموفق بود لطفا دوباره تلاش کنید :)')
+            messages.error(request, 'تراکنش ناموفق بود لطفا دوباره تلاش کنید :)')
             return redirect(enroll.course.get_absolute_url())

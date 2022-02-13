@@ -1,19 +1,19 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-)&-1w3as5lbnu00-#z^pkt*szl*9tmh#6p-iq(byqzb6ee%84q'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', default='True') == 'True'
+# download file api
+DOWNLOAD_API = 'http://127.0.0.1:5000/' if DEBUG else 'https://download.pytopy.ir/'
+# token for download. subdomain
+PYTOPY_TOKEN = 'c45dhk@|!(&^NLDjn687vhk.seg66:'
+# zarin pal
+MERCHANT_ID = '6d1c6f92-57e9-4d33-b922-6fda2424b34f'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

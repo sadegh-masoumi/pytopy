@@ -12,6 +12,8 @@ class Enroll(models.Model):
     is_active = models.BooleanField(default=True)
     is_pay = models.BooleanField(default=False)
 
+    token = models.CharField(max_length=30)
+
     amount = models.IntegerField(verbose_name='مبلغ پرداخت شده به تومان')
 
     def __str__(self):

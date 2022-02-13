@@ -39,24 +39,6 @@ def login_user(request):
     return render(request, 'login.html', context)
 
 
-def login_page(request):
-    email = request.POST.get('email')
-    password = request.POST.get('password')
-
-    x = User.objects.filter(email=email).first()
-
-    if x is None:
-        response = JsonResponse({'mesg': 'کاربری با این مشخصات یافت نشد'})
-        return response
-
-    user = authenticate(request, username=x.username, email=email, password=password)
-
-    if user is not None:
-        user = User.objects.filter(user=user).first()
-        login(request, user)
-        return JsonResponse({'mesg': f'{user.username} خوش آمدید'})
-
-
 def register_user(request):
     if request.user.is_authenticated:
         return redirect(reverse('home'))

@@ -306,7 +306,7 @@
         const password = $('#password-login').val()
         $.ajax({
             type: 'POST',
-            url: '/login_page',
+            url: '{% url 'login' %}',
             data: {
                 email: email,
                 password: password,
@@ -315,7 +315,7 @@
             },
             success: function (json) {
 
-                alert(json.mesg)
+                alert('به سایت پای تو پای خوش آمدید :)')
                 window.location.reload()
             },
             error: function (xhr, errmsg, err) {

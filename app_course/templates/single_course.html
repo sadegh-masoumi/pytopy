@@ -356,13 +356,14 @@
                                         {% else %}
                                             {% if request.user.is_authenticated %}
                                                 {% if access %}
-                                                    <a href="{% url 'download-file' episode_pk=episode.pk %}"
+                                                    {#  buy cource and have access  #}
+                                                    <a href="{{ download_api }}download/{{ enroll.token }}/{{ episode.pk }}"
                                                        class="download-link"><i
                                                             class="ai-download"></i></a>
                                                 {% else %}
-                                                    شما در این دوره ثبت نام نکرده اید
-                                                    شروع ثبت نام ...
-                                                    <span href="{{ episode.link }}" class="download-link"><i
+                                                    {#  login bot   #}
+                                                    <span href="{% url 'pay-request' course_id=course.pk %}"
+                                                          class="download-link"><i
                                                             class="ai-lock"></i></span>
                                                 {% endif %}
                                             {% else %}
