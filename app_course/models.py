@@ -35,7 +35,10 @@ class Course(models.Model):
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True, verbose_name='نام در url')
 
     name = models.CharField(max_length=150, verbose_name='نام')
-    description = models.TextField(verbose_name='توضیحات')
+
+    top_description = models.TextField(verbose_name='توضیحات بالای صفحه', blank=True, null=True)
+    main_description = models.TextField(verbose_name='توضیحات اصلی', blank=True, null=True)
+
     price = models.IntegerField(verbose_name='قیمت به تومان')
     time = models.CharField(max_length=10, verbose_name='زمان دوره')
 

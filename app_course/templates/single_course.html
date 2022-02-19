@@ -5,9 +5,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ course.titlePage }}</title>
+    <title>{{ course.title_page }}</title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="{{ course.descriptionPage }}">
+    <meta name="description" content="{{ course.description_page }}">
 
     {% include 'includes/HeaderLink.html' %}
     <!-- Vendor Styles-->
@@ -84,53 +84,9 @@
                             علاقه مند
                             <i class="ai-heart fs-lg me-2"></i>
                         </button>
-                        <p class="fs-md mb-2">
-                            فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می
-                            باشد. این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های
-                            بسیاری را برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
 
-                            اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی
-                            داشته باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
+                        {{ course.top_description | safe }}
 
-                            برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
-                            بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
-
-                        </p>
-                        <hr class="my-4">
-                        <ul class="list-unstyled fs-sm">
-                            <li>
-                                <span class="text-heading fw-medium me-2">نوع دوره:</span>
-                                به صورت ویدئویی - میتوانید به صورت آنلاین و یا آفلاین دوره را به راحتی ببینید
-
-                            </li>
-                            <li>
-                                <span class="text-heading fw-medium me-2">سطح دوره:</span>
-                                <a class="text-body text-decoration-none" href="#">
-                                    پایتون رو بدون پیش‌نیاز یادمیگیرید (هم مقدماتی و هم پیشرفته)
-                                </a>
-                            </li>
-                            <li>
-                                <span class="text-heading fw-medium me-2">پیش نیاز:</span>
-                                <a class="text-body text-decoration-none" href="#">
-                                    هیچ پیشنیازی ندارد
-                                </a>
-                            </li>
-                            <li>
-                                <span class="text-heading fw-medium me-2">دسته بندی:</span>
-                                <a class="text-body text-decoration-none" href="#">
-                                    وب</a>
-                            </li>
-                            <li>
-                                <span class="text-heading fw-medium me-2">زبان:</span>
-                                <a class="text-body text-decoration-none" href="#">
-                                    فارسی</a>
-                            </li>
-                            <li>
-                                <span class="text-heading fw-medium me-2">زمان:</span>
-                                <a class="text-body text-decoration-none" href="#">
-                                    تا کنون بیش از 53 ساعت آموزش منتشر شده است</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 content py-4">
@@ -146,9 +102,6 @@
                     <!-- Sharing-->
                     <div class="d-flex align-items-center justify-content-center justify-content-md-start py-4 pt-md-0 pt-lg-5">
                         <h6 class="text-nowrap my-2 ms-3">به اشترک گذاری :</h6>
-                        <a class="btn-social bs-outline bs-facebook ms-2 my-2" href="#">
-                            <i class="ai-facebook"></i>
-                        </a>
                         <a class="btn-social bs-outline bs-twitter ms-2 my-2" href="#">
                             <i class="ai-twitter"></i>
                         </a>
@@ -164,94 +117,7 @@
         </div>
     </section>
     <!-- Product description-->
-    <section class="mt-0 pt-0 pt-md-0 pb-0 pb-md-0 mb-0 mb-md-0 border-bottom" id="more-info">
-        <div class="container">
-            <div class="row align-items-center pb-3 mb-2">
-                <div class="col-lg-4 col-md-4  order-md-2 pb-2 mb-4 pb-md-0 mb-md-0">
-                    <div class="bg-secondary bg-size-cover bg-position-center rounded-3 py-7 px-4 text-center"
-                         style="background-image: url({% static '' %}img/shop/single/video.jpg);">
-                        <a class="btn-video btn-video-sm my-4" href="https://www.youtube.com/watch?v=d1qnvK3ID_w">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-8 offset-lg-1 order-md-1">
-                    <h2 class="h3 mb-4">High quality materials</h2>
-                    <p class="fs-md">
-                        فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
-                        این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
-                        برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
-
-                        اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی داشته
-                        باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
-
-                        برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
-                        بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
-
-                        در این دوره ی آموزشی قصد داریم که این فریم ورک جذاب و دوست داشتنی را از مباحث مقدماتی تا نکات
-                        پیشرفته بررسی کنیم.
-
-                        جهت استفاده از این دوره ی اموزشی دوستان باید با تکنولوژی های HTML ، CSS ، Javascript ، Jquery و
-                        Bootstrap آشنایی داشته باشند.
-                    </p>
-                    <h2 class="h3 mb-4">High quality materials</h2>
-                    <p class="fs-md">
-                        فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
-                        این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
-                        برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
-
-                        اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی داشته
-                        باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
-
-                        برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
-                        بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
-
-                        در این دوره ی آموزشی قصد داریم که این فریم ورک جذاب و دوست داشتنی را از مباحث مقدماتی تا نکات
-                        پیشرفته بررسی کنیم.
-
-                        جهت استفاده از این دوره ی اموزشی دوستان باید با تکنولوژی های HTML ، CSS ، Javascript ، Jquery و
-                        Bootstrap آشنایی داشته باشند.
-                    </p>
-                    <h2 class="h3 mb-4">High quality materials</h2>
-                    <p class="fs-md">
-                        فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
-                        این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
-                        برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
-
-                        اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی داشته
-                        باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
-
-                        برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
-                        بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
-
-                        در این دوره ی آموزشی قصد داریم که این فریم ورک جذاب و دوست داشتنی را از مباحث مقدماتی تا نکات
-                        پیشرفته بررسی کنیم.
-
-                        جهت استفاده از این دوره ی اموزشی دوستان باید با تکنولوژی های HTML ، CSS ، Javascript ، Jquery و
-                        Bootstrap آشنایی داشته باشند.
-                    </p>
-                    <h2 class="h3 mb-4">High quality materials</h2>
-                    <p class="fs-md">
-                        فریم ورک جنگو ( Django ) یکی از برترین فریم ورک های حال حاضر در زمینه ی برنامه نویسی وب می باشد.
-                        این فریم ورک با بهره گیری از زبان قدرتمند پایتون به عنوان هسته ی اصلی خود توانایی های بسیاری را
-                        برای برنامه نویسان جهت پیاده سازی پروژه های بزرگ و حرفه ای ایجاد می کند.
-
-                        اصول کدنویسی در این فریم ورک بسیار ساده بوده و هر برنامه نویسی که مقداری با پایتون آشنایی داشته
-                        باشد میتواند از این فریم ورک قدرتمند جهت ایجاد پروژه های مبتنی بر وب استفاده کند.
-
-                        برخلاف سادگی کار با این فریم ورک ، پروژه هایی نظیر Instagram ، YouTube ، Spotify ، Udemy و
-                        بسیاری دیگر در هسته ی اصلی خود از Django استفاده میکنند.
-
-                        در این دوره ی آموزشی قصد داریم که این فریم ورک جذاب و دوست داشتنی را از مباحث مقدماتی تا نکات
-                        پیشرفته بررسی کنیم.
-
-                        جهت استفاده از این دوره ی اموزشی دوستان باید با تکنولوژی های HTML ، CSS ، Javascript ، Jquery و
-                        Bootstrap آشنایی داشته باشند.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    {{ course.main_description | safe }}
     <!-- FAQ-->
     <section class="container py-3 my-3 my-sm-0 py-sm-3 py-md-3">
         <h2 class="text-center pb-2 mb-5">سوالات متداول شما عزیزان !</h2>
@@ -262,34 +128,15 @@
                         <h2 class="accordion-header" id="faq-heading-1">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq-content-1" aria-expanded="true" aria-controls="faq-content-1">
-                                پشتیبانی دوره ها به چه صورت است و تا کی ؟
+                                پشتیبانی دوره ها به چه صورت است ؟
                             </button>
                         </h2>
                         <div class="accordion-collapse collapse show" id="faq-content-1" aria-labelledby="faq-heading-1"
                              data-bs-parent="#faq">
                             <div class="accordion-body">
-                                <div class="fs-sm">پشتیبانی دوره های آموزشی به صورت دائمی و مادام العمر از طریق کانال
-                                    های ارتباطی با مدرس می باشد.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item shadow">
-                        <h2 class="accordion-header" id="faq-heading-2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-2" aria-expanded="false" aria-controls="faq-content-2">
-                                آیا دوره ها کامل است ؟
-                            </button>
-                        </h2>
-                        <div class="accordion-collapse collapse" id="faq-content-2" aria-labelledby="faq-heading-2"
-                             data-bs-parent="#faq">
-                            <div class="accordion-body">
                                 <div class="fs-sm">
-                                    پای تو پای در انتخاب مدرسان خود بسیار سخت گیر است و تمامی دوره های حود را سعی کرده
-                                    است در بیشتر کیفیت علمی و مفهومی نگه دارد.
-                                    مدرسان پای تو پای افراد متخصص در زمینه خود هستنید و سعی کرده اند تمام تجربیات خود را
-                                    با شما در میان بگذارند.
-                                    پس شما عزیزان اصلا نگران کامل بودن نباشید
+                                    بعد از ثبت نام شما در دوره من خودم به شما دوستان پیام میدم و با شما ارتباط برقرار
+                                    میکنم و شما رو در گروه دوره اضافه خواهم کرد.
                                 </div>
                             </div>
                         </div>
@@ -311,23 +158,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item shadow">
-                        <h2 class="accordion-header" id="faq-heading-4">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-4" aria-expanded="false" aria-controls="faq-content-4">
-                                چگونه با پای تو پای همکاری کنم؟
-                            </button>
-                        </h2>
-                        <div class="accordion-collapse collapse" id="faq-content-4" aria-labelledby="faq-heading-4"
-                             data-bs-parent="#faq">
-                            <div class="accordion-body">
-                                <div class="fs-sm">شما عزیزان اگر دارای تخصصی هستید در این لینک ثبت درخواست کنید و اگر
-                                    علاقه مند به برنامه نویسی هستید باز هم به ما پیام بدهید و اگر در دوره ها شرکت کرده
-                                    اید در آخر دوره با همراهی ما به شما پروژه واقعی داده می شود.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="d-none d-lg-block col-lg-5 offset-lg-1"><img
@@ -335,6 +165,7 @@
             </div>
         </div>
     </section>
+    <!-- Episode -->
     <section class="mt-1 pt-3 pt-md-0 pb-5 pb-md-6 mb-5 mb-md-6 border-bottom" id="download">
         <div class="container">
             <div class="row align-items-center pb-3 mb-5">
@@ -380,7 +211,7 @@
             </div>
         </div>
     </section>
-    <!-- Reviews-->
+    <!-- Comment-->
     <section class="pb-5 pt-2 pt-md-0 mb-5 mb-sm-6 border-bottom" id="reviews">
         <div class="container pb-3">
             <div class="row">
@@ -454,19 +285,19 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center me-3">
                                     <img class="rounded-circle"
-                                         src="{% static 'img/testimonials/07.jpg' %}"
+                                         src="{% static 'img/default.png' %}"
                                          alt="Barbara Palson" width="42">
                                     <div class="pe-2 me-1">
                                         <h6 class="fs-sm mb-n1">{{ item.name }}</h6>
                                         <span class="fs-xs text-muted">{{ item.date }}</span>
                                     </div>
                                 </div>
-                                <div class="text-nowrap">
-                                    <button class="btn-like like" value="{{ item.id }}"
-                                            type="button">{{ item.likecoursecomment_set | like_count }}</button>
-                                    <button class="btn-dislike dislike" value="{{ item.id }}"
-                                            type="button">{{ item.likecoursecomment_set | dislike_count }}</button>
-                                </div>
+                                {#                                <div class="text-nowrap">#}
+                                {#                                    <button class="btn-like like" value="{{ item.id }}"#}
+                                {#                                            type="button">{{ item.likecoursecomment_set | like_count }}</button>#}
+                                {#                                    <button class="btn-dislike dislike" value="{{ item.id }}"#}
+                                {#                                            type="button">{{ item.likecoursecomment_set | dislike_count }}</button>#}
+                                {#                                </div>#}
                             </div>
                         </div>
                     {% endfor %}
