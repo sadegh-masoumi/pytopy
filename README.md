@@ -11,21 +11,11 @@ pip install requirements.txt
 mysql   =====> main database
 ```
 
-### ALLOWED_HOSTS
-```
-change ALLOWED_HOSTS list in core/settings.py
-```
 
 ###env
 ```bash
 # django DEBUG
-$DEBUG = 'False' or 'True'
-
-# postgresql database config
-$DATABASE_NAME = ...
-$DATABASE_USER = ...
-$DATABASE_PASSWORD = ...
-$DATABASE_URL = ...
+$DEBUG = 'debug' or 'testnet' or 'production'
 
 ```
 

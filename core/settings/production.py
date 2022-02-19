@@ -1,11 +1,6 @@
 from core.settings.base import *
 
-
-is_test_net = os.environ.get('is_test_net')
-
-if is_test_net == 'False':
-    # Database
-    # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+if is_test_net:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -28,23 +23,9 @@ if is_test_net == 'False':
     ]
 
 else:
-
     ALLOWED_HOSTS = [
         't-net.pytopy.ir',
     ]
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': 'pytopyir_test_net',
-    #         'USER': 'pytopyir_test_net_user',
-    #         'PASSWORD': 'r2+1}aWu~Bk]',
-    #         'HOST': 'localhost',
-    #         'POST': '3306',
-    #         'OPTIONS': {
-    #             'sql_mode': 'STRICT_ALL_TABLES'
-    #         }
-    #     }
-    # }
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

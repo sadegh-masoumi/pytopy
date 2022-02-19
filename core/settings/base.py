@@ -5,7 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = 'django-insecure-)&-1w3as5lbnu00-#z^pkt*szl*9tmh#6p-iq(byqzb6ee%84q'
 
-DEBUG = os.environ.get('DEBUG', default='True') == 'True'
+DEBUG = os.environ.get('DEBUG', default='debug') == 'debug'
+is_test_net = os.environ.get('DEBUG') == 'testnet'
+
 # download file api
 DOWNLOAD_API = 'http://127.0.0.1:5000/' if DEBUG else 'https://download.pytopy.ir/'
 # token for download. subdomain
