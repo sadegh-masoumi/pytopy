@@ -15,6 +15,8 @@ PYTOPY_TOKEN = 'c45dhk@|!(&^NLDjn687vhk.seg66:'
 # zarin pal
 MERCHANT_ID = '6d1c6f92-57e9-4d33-b922-6fda2424b34f'
 
+UPDATE_TOKEN = 'knk32r3d^&*IU&(G'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

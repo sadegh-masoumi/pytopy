@@ -3,15 +3,12 @@ from core.settings.base import *
 if not is_test_net:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'pytopyir_PyDatabase',
             'USER': 'pytopyir_PyToPy_main',
             'PASSWORD': '^6zC9359005490.ms',
             'HOST': 'localhost',
-            'POST': '3306',
-            'OPTIONS': {
-                'sql_mode': 'STRICT_ALL_TABLES'
-            }
+            'POST': '5432',
         }
     }
     ALLOWED_HOSTS = [
