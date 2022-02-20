@@ -56,7 +56,7 @@
                                             <span class="text-heading fw-semibold">{{ item | amount_after_discount }}</span>
                                             <span>تومان</span>
                                         {% else %}
-                                            <span class="text-heading fw-semibold">{{ item.price }}</span>
+                                            <span class="text-heading fw-semibold">{{ item.price | amount }} تومان</span>
                                         {% endif %}
                                     </div>
                                     <div class="card-footer">

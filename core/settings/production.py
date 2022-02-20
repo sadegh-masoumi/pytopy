@@ -1,6 +1,6 @@
 from core.settings.base import *
 
-if is_test_net:
+if not is_test_net:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
