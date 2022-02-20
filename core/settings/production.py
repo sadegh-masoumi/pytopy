@@ -3,7 +3,7 @@ from core.settings.base import *
 if not is_test_net:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'pytopyir_PyDatabase',
             'USER': 'pytopyir_PyToPy_main',
             'PASSWORD': '^6zC9359005490.ms',
