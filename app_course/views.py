@@ -75,7 +75,7 @@ def download_file(request, episode_pk):
     if DEBUG:
         filepath = BASE_DIR / 'download-file' / filename
     else:
-        filepath = '/home/pytopyir/' + filename
+        filepath = '/home/pytopyir/' + 'download-file/' + filename
     # Open the file for reading content
     try:
         path = open(filepath, 'rb')
