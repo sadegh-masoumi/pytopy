@@ -11,4 +11,5 @@ urlpatterns = [
 
     path('course/<int:pk>/<slug:slug>', views.view_single_course, name='single-curse'),
 
+    path('download/<episode_pk>', views.download_file, name='download-file'),
 ]

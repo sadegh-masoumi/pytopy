@@ -8,7 +8,7 @@ pip install requirements.txt
 
 ###requirements
 ```
-mysql   =====> main database
+postgres   =====> main database
 ```
 
 

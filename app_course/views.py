@@ -1,12 +1,13 @@
 import mimetypes
 
-from core.settings.base import BASE_DIR, DOWNLOAD_API
+from core.settings.base import BASE_DIR, DOWNLOAD_API, DEBUG
 
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, Http404, redirect
 from django.http import HttpResponse
+from django.contrib import messages
+from django.urls import reverse
 
 from app_order.models import Enroll
 from .models import Season, Episode, UserDownloadEpisode, Course, CourseComment
@@ -47,3 +48,44 @@ def view_single_course(request, pk, **kwargs):
         context['send_comment'] = True
 
     return render(request, 'single_course.html', context)
+
+
+def download_file(request, episode_pk):
+    user = request.user
+    episode = Episode.objects.filter(pk=episode_pk).first()
+
+    if not episode.is_free:
+        if user.is_authenticated:
+            enroll = Enroll.objects.filter(user=user, course=episode.course).first()
+            if enroll is None:
+                raise Http404('صفحه مورد نظر یافت نشد')
+        else:
+            messages.error(request,
+                           'لطفاٌ برای دانلود فایل ها اول لاگین کنید. ( توجه داشته باشید این قسمت رایگان نیست)')
+            redirect(reverse('login'))
+
+    if user.is_authenticated:
+        user_download_episode, _ = UserDownloadEpisode.objects.get_or_create(user=user, episode=episode)
+        user_download_episode.count += 1
+        user_download_episode.save()
+
+    # Define text file name
+    filename = episode.path
+    # Define the full file path
+    if DEBUG:
+        filepath = BASE_DIR / 'download-file' / filename
+    else:
+        filepath = '/home/pytopyir/' + filename
+    # Open the file for reading content
+    try:
+        path = open(filepath, 'rb')
+    except FileNotFoundError:
+        raise Http404('فایل مورد نظر یافت نشد')
+    # Set the mime type
+    mime_type, _ = mimetypes.guess_type(filepath)
+    # Set the return value of the HttpResponse
+    response = HttpResponse(path, content_type='application/force-download')
+    # Set the HTTP header for sending to browser
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    # Return the response value
+    return response

@@ -182,19 +182,19 @@
                                         <div class="video-title">{{ episode.title }}</div>
                                         <div class="video-time">{{ episode.time }}</div>
                                         {% if episode.is_free %}
-                                            <a href="{{ episode.link }}" class="download-link"><i
+                                            <a href="{% url 'download-file' episode_pk=episode.pk %}"
+                                               class="download-link"><i
                                                     class="ai-download"></i></a>
                                         {% else %}
                                             {% if request.user.is_authenticated %}
                                                 {% if access %}
-                                                    {#  buy cource and have access  #}
-                                                    <a href="{{ download_api }}download/{{ enroll.token }}/{{ episode.pk }}"
+                                                    {# buy cource and have access #}
+                                                    <a href="{% url 'download-file' episode_pk=episode.pk %}"
                                                        class="download-link"><i
                                                             class="ai-download"></i></a>
                                                 {% else %}
-                                                    {#  login bot   #}
-                                                    <span href="{% url 'pay-request' course_id=course.pk %}"
-                                                          class="download-link"><i
+                                                    {# login but #}
+                                                    <span class="download-link"><i
                                                             class="ai-lock"></i></span>
                                                 {% endif %}
                                             {% else %}

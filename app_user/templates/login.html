@@ -22,6 +22,21 @@
     </div>
 </div>
 <main class="page-wrapper d-flex flex-column">
+    {% if messages %}
+        {% for message in messages %}
+            <!-- Success alert -->
+            <div class="container fixed-top">
+                <div class="py-md-4">
+                    <div class="alert d-flex alert-success" role="alert">
+                        <i class="ai-check-circle fs-xl me-3"></i>
+                        <div>
+                            {{ message }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
 
     {% render_partial 'core.partial_views.header_light' %}
     <!-- Page content-->

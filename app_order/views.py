@@ -1,9 +1,5 @@
-import requests
-import secrets
-import string
-
 from app_course.models import Course
-from core.settings.base import DOWNLOAD_API, PYTOPY_TOKEN, MERCHANT_ID, DEBUG
+from core.settings.base import MERCHANT_ID, DEBUG
 from .models import Enroll
 from .zarinpal import ZarinPal
 
@@ -58,17 +54,8 @@ def pay_verify(request, enroll_id, *args, **kwargs):
 
     if response.get("transaction"):
         if response.get("pay"):
-            alphabet = string.ascii_letters + string.digits
-            token = ''.join(secrets.choice(alphabet) for i in range(20))
-            data = {
-                'client_token': token,
-                'authorization': PYTOPY_TOKEN,
-                'username': enroll.user.username,
-            }
-            requests.post(url=DOWNLOAD_API + 'create-client', data=data)
 
             enroll.is_pay = True
-            enroll.token = token
             enroll.save()
 
             messages.success(request, 'شما با موفقیت  در دوره ثبت نام کرده اید. تبریک مطمئنم میترکونی :)')

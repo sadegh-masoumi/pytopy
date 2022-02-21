@@ -26,8 +26,6 @@ def login_user(request):
     login_form = LoginForm(request.POST or None)
 
     if login_form.is_valid():
-        user = User.objects.get(email=login_form.cleaned_data.get('email'))
-        print(user.is_active)
         user = authenticate(request, **login_form.cleaned_data)
 
         login(request, user)
