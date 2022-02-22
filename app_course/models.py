@@ -135,6 +135,9 @@ class Episode(models.Model):
     def __str__(self):
         return f'{self.title} {self.season}'
 
+    class Meta:
+        ordering = ('number',)
+
 
 class UserDownloadEpisode(models.Model):
     episode = models.ForeignKey(Episode, models.CASCADE)

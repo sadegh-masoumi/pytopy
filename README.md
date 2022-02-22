@@ -10,7 +10,10 @@ pip install requirements.txt
 ```
 postgres   =====> main database
 ```
-
+###git TOKEN
+```
+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
+```
 
 ###env
 ```bash
