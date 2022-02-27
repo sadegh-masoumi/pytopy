@@ -29,6 +29,10 @@ def login_user(request):
         user = authenticate(request, **login_form.cleaned_data)
 
         login(request, user)
+        redirect_url = request.GET.get('next')
+
+        if redirect_url is not None:
+            return redirect(reverse(redirect_url))
         return redirect(reverse('home'))
 
     context = {
