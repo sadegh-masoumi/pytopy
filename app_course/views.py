@@ -37,7 +37,7 @@ def view_single_course(request, pk, **kwargs):
     }
     if request.user.is_authenticated:
         is_enroll = Enroll.objects.filter(course=course, is_pay=True, is_active=True).first()
-        if is_enroll:
+        if is_enroll is not None:
             context['access'] = True
         else:
             context['access'] = False
