@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     #  our apps
     'django_render_partial',
+    'google_analytics',
 
     'app_home.apps.AppHomeConfig',
     'app_user.apps.AppUserConfig',
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'google_analytics.middleware.GoogleAnalyticsMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -76,8 +78,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -92,9 +92,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -106,6 +105,5 @@ USE_L10N = True
 USE_TZ = True
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

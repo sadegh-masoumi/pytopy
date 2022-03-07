@@ -31,9 +31,6 @@ else:
     }
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -46,3 +43,10 @@ MEDIA_ROOT = "/home/pytopyir/public_html/media"
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
 STATIC_ROOT = "/home/pytopyir/public_html/static"
+
+# google analytic config
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'G-LRHDJXWTHW',
+}
+CELERY_IMPORTS = ('google_analytics.tasks',)
+GOOGLE_ANALYTICS_IGNORE_PATH = ['/admin/', ]
