@@ -28,7 +28,6 @@ INSTALLED_APPS = [
 
     #  our apps
     'django_render_partial',
-    'google_analytics',
 
     'app_home.apps.AppHomeConfig',
     'app_user.apps.AppUserConfig',

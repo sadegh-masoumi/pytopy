@@ -24,8 +24,6 @@ from core.settings import development
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('google-analytic/', include('google_analytics.urls')),
-
     path('', include('app_home.urls')),
     path('', include('app_user.urls')),
     path('', include('app_course.urls')),
