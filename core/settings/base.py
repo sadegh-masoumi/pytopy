@@ -105,3 +105,11 @@ USE_TZ = True
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# email configs
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EMailBackend'
+EMAIL_HOST = 'email@pytopy.ir'
+EMAIL_HOST_USER = 'email@pytopy.ir'
+EMAIL_HOST_PASSWORD = '9359005490.ms'
+EMAIL_PORT = '465'
+EMAIL_USE_TLS = True
+EMAIL_USE_SLL = True
