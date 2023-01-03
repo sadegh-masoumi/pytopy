@@ -13,7 +13,7 @@ DOWNLOAD_API = 'http://127.0.0.1:5000/' if DEBUG else 'https://download.pytopy.i
 # token for download. subdomain
 PYTOPY_TOKEN = 'c45dhk@|!(&^NLDjn687vhk.seg66:'
 # zarin pal
-MERCHANT_ID = '6d1c6f92-57e9-4d33-b922-6fda2424b34f'
+MERCHANT_ID = os.environ.get('MERCHANT_ID')
 
 UPDATE_TOKEN = 'knk32r3d^&*IU&(G'
 
